@@ -1,8 +1,8 @@
-resource "grafana_data_source" "loki" {
-  type = "loki"
-  url  = "http://loki.local.net"
-  name = "Loki"
-}
+# resource "grafana_data_source" "loki" {
+#   type = "loki"
+#   url  = "http://loki.local.net"
+#   name = "Loki"
+# }
 
 resource "grafana_data_source" "elasticsearch" {
   type          = "elasticsearch"
