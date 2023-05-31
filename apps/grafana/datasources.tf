@@ -20,3 +20,11 @@ resource "grafana_data_source" "prometheus" {
   url  = "http://prometheus.local.net"
   name = "Prometheus"
 }
+
+resource "grafana_data_source" "redis" {
+  type = "redis-datasource"
+  url  = "redis://192.168.1.22:6379"
+  json_data {
+    client = "standalone"
+  }
+}
