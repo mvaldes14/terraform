@@ -3,10 +3,10 @@ resource "grafana_data_source" "elasticsearch" {
   url           = "http://elastic.server.local.net"
   name          = "Elasticsearch"
   database_name = "filebeat-*"
-  json_data_encoded {
+  json_data_encoded = jsonencode({
     es_version = "7.10.0"
     time_field = "@timestamp"
-  }
+  })
 }
 
 resource "grafana_data_source" "prometheus" {
