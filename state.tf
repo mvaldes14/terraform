@@ -3,7 +3,7 @@ terraform {
     organization = "elxilote"
 
     workspaces {
-      name = "example-workspace"
+      name = "main"
     }
   }
 }
