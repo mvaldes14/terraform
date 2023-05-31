@@ -1,6 +1,7 @@
 version: 3
 projects:
   - name: grafana
+    workspace: main
     dir: apps/grafana
     autoplan:
       when_modified:
