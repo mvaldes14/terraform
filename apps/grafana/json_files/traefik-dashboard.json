@@ -35,7 +35,7 @@
       "collapsed": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "gridPos": {
         "h": 1,
@@ -51,7 +51,7 @@
     {
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -129,7 +129,7 @@
     {
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -209,7 +209,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -292,7 +292,7 @@
       "collapsed": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "gridPos": {
         "h": 1,
@@ -312,7 +312,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -397,7 +397,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -484,7 +484,7 @@
       },
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -542,7 +542,7 @@
         },
         "datasource": {
           "type": "Prometheus",
-          "uid": "qxMo9OZgk"
+          "uid": "TmEnJ9zRk"
         },
         "definition": "label_values(service)",
         "hide": 0,
@@ -572,7 +572,7 @@
         },
         "datasource": {
           "type": "Prometheus",
-          "uid": "qxMo9OZgk"
+          "uid": "TmEnJ9zRk"
         },
         "definition": "label_values(entrypoint)",
         "hide": 0,

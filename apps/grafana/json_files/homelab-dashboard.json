@@ -71,7 +71,7 @@
       },
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "description": "",
       "fieldConfig": {
@@ -465,7 +465,7 @@
       },
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "description": "",
       "fieldConfig": {
@@ -854,7 +854,7 @@
       },
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "description": "",
       "fieldConfig": {
@@ -1216,7 +1216,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -1698,7 +1698,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -2180,7 +2180,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -2665,7 +2665,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -2776,7 +2776,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -2887,7 +2887,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {

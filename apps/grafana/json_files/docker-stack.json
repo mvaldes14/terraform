@@ -34,7 +34,7 @@
     {
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -113,7 +113,7 @@
     {
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -177,7 +177,7 @@
         {
           "datasource": {
             "type": "Prometheus",
-            "uid": "qxMo9OZgk"
+            "uid": "TmEnJ9zRk"
           },
           "exemplar": true,
           "expr": "sum(container_memory_usage_bytes{job=~\"$job\",image!=\"\"})/1024/1024",
@@ -196,7 +196,7 @@
     {
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -262,7 +262,7 @@
         {
           "datasource": {
             "type": "Prometheus",
-            "uid": "qxMo9OZgk"
+            "uid": "TmEnJ9zRk"
           },
           "exemplar": true,
           "expr": "sum(rate(container_cpu_user_seconds_total{job=~\"$job\",image!=\"\"}[5m]) * 100)",
@@ -281,7 +281,7 @@
     {
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -361,7 +361,7 @@
         {
           "datasource": {
             "type": "Prometheus",
-            "uid": "qxMo9OZgk"
+            "uid": "TmEnJ9zRk"
           },
           "exemplar": true,
           "expr": "rate(container_cpu_user_seconds_total{job=~\"$job\",image!=\"\",container_label_com_docker_stack_namespace=\"$stack\"}[5m]) * 100",
@@ -383,7 +383,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "decimals": 2,
       "editable": true,
@@ -479,7 +479,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "editable": true,
       "error": false,
@@ -570,7 +570,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "editable": true,
       "error": false,
@@ -660,7 +660,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "editable": true,
       "error": false,
@@ -751,7 +751,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "editable": true,
       "error": false,
@@ -852,7 +852,7 @@
         },
         "datasource": {
           "type": "Prometheus",
-          "uid": "qxMo9OZgk"
+          "uid": "TmEnJ9zRk"
         },
         "definition": "",
         "hide": 0,
@@ -883,7 +883,7 @@
         },
         "datasource": {
           "type": "Prometheus",
-          "uid": "qxMo9OZgk"
+          "uid": "TmEnJ9zRk"
         },
         "definition": "label_values(container_label_com_docker_stack_namespace)",
         "hide": 0,

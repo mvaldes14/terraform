@@ -40,7 +40,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 10,
       "fillGradient": 0,
@@ -145,7 +145,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -250,7 +250,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -355,7 +355,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -486,7 +486,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -617,7 +617,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 2,
       "fillGradient": 0,
@@ -748,7 +748,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -853,7 +853,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -959,7 +959,7 @@
       "dashes": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1117,7 +1117,7 @@
       "bars": false,
       "datasource": {
         "type": "Prometheus",
-        "uid": "qxMo9OZgk"
+        "uid": "TmEnJ9zRk"
       },
       "fill": 10,
       "gridPos": {
@@ -1244,7 +1244,7 @@
         },
         "datasource": {
           "type": "Prometheus",
-          "uid": "qxMo9OZgk"
+          "uid": "TmEnJ9zRk"
         },
         "definition": "",
         "hide": 0,

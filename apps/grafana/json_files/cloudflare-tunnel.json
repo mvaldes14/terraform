@@ -31,7 +31,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -82,7 +82,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "expr": "sum(cloudflared_tunnel_server_locations)",
           "refId": "A"
@@ -95,7 +95,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -146,7 +146,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "expr": "cloudflared_tunnel_ha_connections",
           "refId": "A"
@@ -159,7 +159,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -210,7 +210,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "expr": "cloudflared_tunnel_request_errors",
           "refId": "A"
@@ -223,7 +223,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -269,7 +269,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "expr": "cloudflared_tunnel_total_requests",
           "refId": "A"
@@ -282,7 +282,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -332,7 +332,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "expr": "cloudflared_tunnel_timer_retries",
           "refId": "A"
@@ -345,7 +345,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -395,7 +395,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "expr": "cloudflared_tunnel_active_streams",
           "refId": "A"
@@ -408,7 +408,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -458,7 +458,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "expr": "cloudflared_tunnel_concurrent_requests_per_tunnel",
           "refId": "A"
@@ -471,7 +471,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "5Pd3urzRk"
+        "uid": "TmEnJ9zRk"
       },
       "fieldConfig": {
         "defaults": {
@@ -545,7 +545,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "5Pd3urzRk"
+            "uid": "TmEnJ9zRk"
           },
           "editorMode": "code",
           "expr": "rate(cloudflared_tunnel_response_by_code[5m])",
