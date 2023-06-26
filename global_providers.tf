@@ -18,6 +18,6 @@ provider "aws" {
 
 
 provider "grafana" {
-  url  = "https://monitoring.mvaldes.dev"
+  url  = "https://grafana.mvaldes.dev"
   auth = var.grafana_api_token
 }
