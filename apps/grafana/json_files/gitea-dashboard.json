@@ -37,8 +37,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -125,8 +124,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -214,8 +212,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -301,8 +298,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -354,8 +350,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -407,8 +402,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -460,8 +454,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -513,8 +506,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -566,8 +558,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -619,8 +610,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -672,8 +662,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -725,8 +714,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -778,8 +766,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -831,8 +818,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -884,8 +870,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -937,8 +922,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -990,8 +974,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1043,8 +1026,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1096,8 +1078,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1173,7 +1154,6 @@
   },
   "timezone": "browser",
   "title": "Gitea",
-  "uid": "nNq1Iw5Gz",
   "version": 1,
   "weekStart": ""
 }

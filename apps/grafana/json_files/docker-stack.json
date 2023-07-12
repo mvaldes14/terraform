@@ -33,8 +33,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -112,8 +111,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -176,8 +174,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "Prometheus",
-            "uid": "TmEnJ9zRk"
+            "type": "Prometheus"
           },
           "exemplar": true,
           "expr": "sum(container_memory_usage_bytes{job=~\"$job\",image!=\"\"})/1024/1024",
@@ -195,8 +192,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -261,8 +257,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "Prometheus",
-            "uid": "TmEnJ9zRk"
+            "type": "Prometheus"
           },
           "exemplar": true,
           "expr": "sum(rate(container_cpu_user_seconds_total{job=~\"$job\",image!=\"\"}[5m]) * 100)",
@@ -280,8 +275,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -360,8 +354,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "Prometheus",
-            "uid": "TmEnJ9zRk"
+            "type": "Prometheus"
           },
           "exemplar": true,
           "expr": "rate(container_cpu_user_seconds_total{job=~\"$job\",image!=\"\",container_label_com_docker_stack_namespace=\"$stack\"}[5m]) * 100",
@@ -382,8 +375,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "decimals": 2,
       "editable": true,
@@ -478,8 +470,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "editable": true,
       "error": false,
@@ -569,8 +560,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "editable": true,
       "error": false,
@@ -659,8 +649,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "editable": true,
       "error": false,
@@ -750,8 +739,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "editable": true,
       "error": false,
@@ -851,8 +839,7 @@
           "value": "docker"
         },
         "datasource": {
-          "type": "Prometheus",
-          "uid": "TmEnJ9zRk"
+          "type": "Prometheus"
         },
         "definition": "",
         "hide": 0,
@@ -882,8 +869,7 @@
           "value": "elastic"
         },
         "datasource": {
-          "type": "Prometheus",
-          "uid": "TmEnJ9zRk"
+          "type": "Prometheus"
         },
         "definition": "label_values(container_label_com_docker_stack_namespace)",
         "hide": 0,
@@ -937,7 +923,6 @@
   },
   "timezone": "browser",
   "title": "Docker stack monitoring",
-  "uid": "lqeHcgigk",
   "version": 13,
   "weekStart": ""
 }

@@ -4,8 +4,7 @@
       {
         "builtIn": 1,
         "datasource": {
-          "type": "datasource",
-          "uid": "grafana"
+          "type": "datasource"
         },
         "enable": true,
         "hide": true,
@@ -70,8 +69,7 @@
         ]
       },
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -464,8 +462,7 @@
         ]
       },
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -853,8 +850,7 @@
         "notifications": []
       },
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -1215,8 +1211,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -1697,8 +1692,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -2179,8 +2173,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -2664,8 +2657,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2775,8 +2767,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2886,8 +2877,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2997,8 +2987,7 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -3091,8 +3080,7 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -3185,8 +3173,7 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -3294,7 +3281,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "Monitors",
-  "uid": "aAjLzqZgk",
   "version": 5,
   "weekStart": ""
 }
