@@ -2,10 +2,15 @@ resource "grafana_data_source" "elasticsearch" {
   type          = "elasticsearch"
   url           = "http://elastic.server.local.net"
   name          = "Elasticsearch"
-  database_name = "filebeat-*"
+  database_name = "docker-logs"
+  basic_auth_enabled = true
+  basic_auth_username = "elastic"
   json_data_encoded = jsonencode({
-    es_version = "7.10.0"
+    es_version = "8.8.1"
     time_field = "@timestamp"
+  })
+  secure_json_data_encoded = jsonencode({
+    basic_auth_password = var.elasticsearch_password
   })
 }
 

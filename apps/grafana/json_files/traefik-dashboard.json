@@ -34,8 +34,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -50,8 +49,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -128,8 +126,7 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -208,8 +205,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -291,8 +287,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -311,8 +306,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -396,8 +390,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -483,8 +476,7 @@
         "threshold": 0
       },
       "datasource": {
-        "type": "Prometheus",
-        "uid": "TmEnJ9zRk"
+        "type": "Prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -541,8 +533,7 @@
           "value": "$__all"
         },
         "datasource": {
-          "type": "Prometheus",
-          "uid": "TmEnJ9zRk"
+          "type": "Prometheus"
         },
         "definition": "label_values(service)",
         "hide": 0,
@@ -571,8 +562,7 @@
           "value": "$__all"
         },
         "datasource": {
-          "type": "Prometheus",
-          "uid": "TmEnJ9zRk"
+          "type": "Prometheus"
         },
         "definition": "label_values(entrypoint)",
         "hide": 0,
@@ -626,7 +616,6 @@
   },
   "timezone": "",
   "title": "Traefik",
-  "uid": "qPdAviJmz",
   "version": 5,
   "weekStart": ""
 }
