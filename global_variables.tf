@@ -1,10 +1,10 @@
 variable "grafana_api_token" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 
 variable "elasticsearch_password" {
-  type = string
+  type      = string
   sensitive = true
 }
