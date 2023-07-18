@@ -42,7 +42,8 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "gridPos": {
         "h": 1,
@@ -58,7 +59,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -134,7 +136,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -222,7 +225,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -375,7 +379,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -443,7 +448,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -511,7 +517,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -577,7 +584,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -630,7 +638,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -711,7 +720,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -792,7 +802,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -860,7 +871,8 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "gridPos": {
         "h": 1,
@@ -876,7 +888,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1016,7 +1029,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1167,7 +1181,8 @@
     },
     {
       "datasource": {
-        "type": "redis-datasource"
+        "type": "redis-datasource",
+        "uid": "fA_w9dWgk"
       },
       "fieldConfig": {
         "defaults": {
