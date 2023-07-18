@@ -10,5 +10,5 @@ resource "aws_instance" "my_instance" {
 }
 
 resource "aws_ami" "test" {
-  name = "my_ami"
+  name     = "my_ami"
 }

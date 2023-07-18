@@ -23,5 +23,5 @@ resource "grafana_data_source" "prometheus" {
 resource "grafana_data_source" "redis" {
   name = "redis"
   type = "redis-datasource"
-  url  = "redis://192.168.1.22:6379"
+  url  = "redis://redis.local.net:6379"
 }
