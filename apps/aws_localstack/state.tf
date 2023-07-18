@@ -3,7 +3,7 @@ terraform {
     organization = "elxilote"
 
     workspaces {
-      name = "main"
+      name = "localstack"
     }
   }
 }
