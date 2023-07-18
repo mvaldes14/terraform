@@ -33,7 +33,8 @@
   "panels": [
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "description": "Number of CPUs",
       "fieldConfig": {
@@ -110,7 +111,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "description": "Measuring some percentiles performance",
       "fill": 1,
@@ -218,7 +220,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -304,7 +307,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "description": "Measuring some percentiles performance",
       "fill": 1,
@@ -412,7 +416,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -498,7 +503,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "description": "Measuring histogram on some percentile",
       "fill": 1,
@@ -606,7 +612,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "decimals": 0,
       "fill": 1,
@@ -691,7 +698,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "decimals": 0,
       "fill": 1,
@@ -896,7 +904,8 @@
           "value": "$__all"
         },
         "datasource": {
-          "type": "Prometheus"
+          "type": "Prometheus",
+          "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
         },
         "definition": "",
         "hide": 0,
@@ -949,6 +958,7 @@
   },
   "timezone": "browser",
   "title": "Docker Engine Metrics",
+  "uid": "aptVcgmgz",
   "version": 4,
   "weekStart": ""
 }

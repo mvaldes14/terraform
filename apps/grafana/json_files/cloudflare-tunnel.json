@@ -30,7 +30,8 @@
   "panels": [
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -80,7 +81,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "expr": "sum(cloudflared_tunnel_server_locations)",
           "refId": "A"
@@ -92,7 +94,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -142,7 +145,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "expr": "cloudflared_tunnel_ha_connections",
           "refId": "A"
@@ -154,7 +158,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -204,7 +209,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "expr": "cloudflared_tunnel_request_errors",
           "refId": "A"
@@ -216,7 +222,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -261,7 +268,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "expr": "cloudflared_tunnel_total_requests",
           "refId": "A"
@@ -273,7 +281,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -322,7 +331,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "expr": "cloudflared_tunnel_timer_retries",
           "refId": "A"
@@ -334,7 +344,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -383,7 +394,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "expr": "cloudflared_tunnel_active_streams",
           "refId": "A"
@@ -395,7 +407,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -444,7 +457,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "expr": "cloudflared_tunnel_concurrent_requests_per_tunnel",
           "refId": "A"
@@ -456,7 +470,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus"
+        "type": "prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -529,7 +544,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus"
+            "type": "prometheus",
+            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
           },
           "editorMode": "code",
           "expr": "rate(cloudflared_tunnel_response_by_code[5m])",
@@ -556,6 +572,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Cloudflared Tunnel",
+  "uid": "hWA2tMgRz",
   "version": 3,
   "weekStart": ""
 }

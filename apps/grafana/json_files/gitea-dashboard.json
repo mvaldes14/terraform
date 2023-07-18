@@ -37,7 +37,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -124,7 +125,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -212,7 +214,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -298,7 +301,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -350,7 +354,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -402,7 +407,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -454,7 +460,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -506,7 +513,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -558,7 +566,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -610,7 +619,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -662,7 +672,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -714,7 +725,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -766,7 +778,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -818,7 +831,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -870,7 +884,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -922,7 +937,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -974,7 +990,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -1026,7 +1043,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -1078,7 +1096,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus"
+        "type": "Prometheus",
+        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
       },
       "fieldConfig": {
         "defaults": {
@@ -1154,6 +1173,7 @@
   },
   "timezone": "browser",
   "title": "Gitea",
+  "uid": "nNq1Iw5Gz",
   "version": 1,
   "weekStart": ""
 }
