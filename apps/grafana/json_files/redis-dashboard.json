@@ -43,7 +43,7 @@
       "collapsed": false,
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "gridPos": {
         "h": 1,
@@ -60,7 +60,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -137,7 +137,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -226,7 +226,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -380,7 +380,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -449,7 +449,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -518,7 +518,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -585,7 +585,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -639,7 +639,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -721,7 +721,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -803,7 +803,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -872,7 +872,7 @@
       "collapsed": false,
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "gridPos": {
         "h": 1,
@@ -889,7 +889,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -1030,7 +1030,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
@@ -1182,7 +1182,7 @@
     {
       "datasource": {
         "type": "redis-datasource",
-        "uid": "fA_w9dWgk"
+        "uid": "b4bfa013-606f-40b4-9bf4-7d7a11d62142"
       },
       "fieldConfig": {
         "defaults": {
