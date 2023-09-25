@@ -10,5 +10,10 @@ resource "aws_instance" "my_instance" {
 }
 
 resource "aws_ami" "test" {
-  name     = "my_ami"
+  name = "my_ami"
+}
+
+resource "aws_s3_bucket" "bucket" {
+  bucket = "my_bucket"
+  acl    = "private"
 }
