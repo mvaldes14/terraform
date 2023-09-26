@@ -8,9 +8,9 @@ projects:
     autoplan:
       when_modified:
       - "*.tf"
-  - name: localstack
-    workspace: localstack
-    dir: apps/aws_localstack
+  - name: aws
+    workspace: aws 
+    dir: apps/aws
     autoplan:
       when_modified:
       - "*.tf"
