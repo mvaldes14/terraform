@@ -15,5 +15,4 @@ resource "aws_ami" "test" {
 
 resource "aws_s3_bucket" "bucket" {
   bucket = "my_bucket"
-  acl    = "private"
 }
