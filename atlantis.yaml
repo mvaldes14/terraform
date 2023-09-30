@@ -7,10 +7,22 @@ projects:
     dir: apps/grafana
     autoplan:
       when_modified:
-      - "*.tf"
-  - name: aws 
-    workspace: aws 
+        - "*.tf"
+  - name: aws
+    workspace: aws
     dir: apps/aws
     autoplan:
       when_modified:
-      - "*.tf"
+        - "*.tf"
+  - name: github
+    workspace: github
+    dir: apps/github
+    autoplan:
+      when_modified:
+        - "*.tf"
+  - name: gitea
+    workspace: gitea
+    dir: apps/gitea
+    autoplan:
+      when_modified:
+        - "*.tf"
