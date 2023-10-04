@@ -3,7 +3,7 @@ locals {
     "meal-notifier" = {
       username     = "mvaldes"
       name         = "meal-notifier"
-      public       = true
+      private       = false
       git_template = "Go"
       license      = "MIT"
     }
@@ -11,7 +11,7 @@ locals {
     "api-go-templ" = {
       username     = "mvaldes"
       name         = "api-go-templ"
-      public       = true
+      private       = false 
       git_template = "Go"
       license      = "MIT"
     }
