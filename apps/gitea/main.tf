@@ -16,6 +16,6 @@ resource "gitea_repository" "this" {
 
   username     = each.value.username
   name         = each.key
-  private      = each.value.public
+  private      = each.value.private
   gitignores   = each.value.git_template
 }
