@@ -15,5 +15,13 @@ locals {
       git_template = "Go"
       license      = "MIT"
     }
+    
+    "flux-test" = {
+      username     = "mvaldes"
+      name         = "flux-test"
+      private       = false 
+      git_template = "Go"
+      license      = "MIT"
+    }
   }
 }
