@@ -19,9 +19,3 @@ resource "grafana_data_source" "prometheus" {
   url  = "http://prometheus.local.net"
   name = "Prometheus"
 }
-
-resource "grafana_data_source" "redis" {
-  name = "redis"
-  type = "redis-datasource"
-  url  = "redis://redis.local.net:6379"
-}
