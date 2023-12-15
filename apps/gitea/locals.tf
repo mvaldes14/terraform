@@ -20,7 +20,7 @@ locals {
       username     = "mvaldes"
       name         = "k8s-apps"
       private       = false
-      git_template = "default"
+      git_template = "Go"
       license      = "MIT"
     }
     
