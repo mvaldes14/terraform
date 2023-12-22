@@ -7,13 +7,11 @@ terraform {
   }
 }
 
-resource "github_repository" "meal-notifier" {
+resource "github_repository" "repo" {
   for_each = local.repositories
-
   name = each.key
   visibility = each.value.visibility
-  gitignore_template = each.value.git_template
-  topics = each.value.topics
+  topics = tolist(each.value.topics)
+  license_template = each.value.license
   vulnerability_alerts = true
-
 }
