@@ -7,6 +7,8 @@ terraform {
   }
 }
 
+provider "github" {}
+
 resource "github_repository" "repo" {
   for_each = local.repositories
   name = each.key
