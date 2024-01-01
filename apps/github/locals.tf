@@ -32,14 +32,6 @@ locals {
       visibility   = "public"
     }
 
-    "wiki" = {
-      name         = "wiki"
-      private      = false
-      license      = "MIT"
-      topics       = ["homelab"]
-      visibility   = "private"
-    }
-
     "dotfiles" = {
       name         = "dotfiles"
       private      = false
