@@ -63,13 +63,5 @@ locals {
       topics       = ["homelab"]
       visibility   = "private"
     }
-
-    "obs-wiki2" = {
-      name         = "obs-wiki2"
-      private      = false
-      license      = "MIT"
-      topics       = ["homelab"]
-      visibility   = "private"
-    }
   }
 }
