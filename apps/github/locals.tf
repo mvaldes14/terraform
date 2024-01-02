@@ -64,7 +64,7 @@ locals {
       visibility   = "private"
     }
 
-    "obs-wiki2 = {
+    "obs-wiki2" = {
       name         = "obs-wiki2"
       private      = false
       license      = "MIT"
