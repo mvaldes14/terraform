@@ -55,5 +55,13 @@ locals {
       topics       = ["automation"]
       visibility   = "public"
     }
+
+    "obs-wiki" = {
+      name         = "obs-wiki"
+      private      = false
+      license      = "MIT"
+      topics       = ["homelab"]
+      visibility   = "private"
+    }
   }
 }
