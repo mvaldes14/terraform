@@ -1,0 +1,4 @@
+repos:
+  - id: /.*/
+    pre_workflow_hooks:
+    - run: git config --global --add safe.directory '*'

@@ -20,8 +20,3 @@ projects:
     autoplan:
       when_modified:
         - "*.tf"
-    workflows: k8s-workflow
-workflows:
-  k8s-workflow:
-    pre_workflow_hooks:
-    - run: git config --global --add safe.directory '*'
