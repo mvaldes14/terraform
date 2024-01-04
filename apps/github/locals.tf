@@ -63,5 +63,13 @@ locals {
       topics       = ["homelab"]
       visibility   = "private"
     }
+    
+    "twitch-bot" = {
+      name         = "twitch-bot"
+      private      = false
+      license      = "MIT"
+      topics       = ["homelab"]
+      visibility   = "public"
+    }
   }
 }
