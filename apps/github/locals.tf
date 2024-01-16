@@ -10,7 +10,7 @@ locals {
 
     "api-go-templ" = {
       name         = "api-go-templ"
-      private       = false 
+      private       = false
       license      = "MIT"
       topics       = ["homelab"]
       visibility   = "public"
@@ -63,13 +63,21 @@ locals {
       topics       = ["homelab"]
       visibility   = "private"
     }
-    
+
     "twitch-bot" = {
       name         = "twitch-bot"
       private      = false
       license      = "MIT"
       topics       = ["homelab"]
       visibility   = "public"
+    }
+
+    "obs-go-cli" = {
+      name = "obs-go-cli"
+      private = "false"
+      license = "MIT"
+      topics = [ "homelab"]
+      visibility = "public"
     }
   }
 }
