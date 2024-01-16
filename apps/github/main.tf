@@ -8,25 +8,25 @@ resource "github_repository" "repo" {
 }
 
 resource "github_actions_secret" "dockerhub_token"{
- repository = "mvaldes14/twitch-bot"
+ repository = "twitch-bot"
  secret_name = "DOCKERHUB_TOKEN"
  plaintext_value = var.dockerhub_token
 }
 
 resource "github_actions_secret" "dockerhub_username"{
- repository = "mvaldes14/twitch-bot"
+ repository = "twitch-bot"
  secret_name = "DOCKERHUB_USERNAME"
  plaintext_value = var.dockerhub_username
 }
 
 resource "github_actions_secret" "telegram_chat" {
-  repository = "mvaldes14/ansible_playbooks"
+  repository = "ansible_playbooks"
   secret_name = "TELEGRAM_TOKEN"
   plaintext_value = var.telegram_token
 }
 
 resource "github_actions_secret" "telegram_to" {
-  repository = "mvaldes14/ansible_playbooks"
+  repository = "ansible_playbooks"
   secret_name = "TELEGRAM_TO"
   plaintext_value = var.telegram_to
 }
