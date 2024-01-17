@@ -79,5 +79,13 @@ locals {
       topics = [ "homelab"]
       visibility = "public"
     }
+    
+    "dotfiles-nix" = {
+      name = "dotfiles-nix"
+      private = "false"
+      license = "MIT"
+      topics = [ "homelab"]
+      visibility = "public"
+    }
   }
 }
