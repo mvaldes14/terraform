@@ -87,5 +87,13 @@ locals {
       topics = [ "homelab"]
       visibility = "public"
     }
+    
+    "deckmaster-config" = {
+      name = "deckmaster-config"
+      private = "false"
+      license = "MIT"
+      topics = [ "homelab"]
+      visibility = "public"
+    }
   }
 }
