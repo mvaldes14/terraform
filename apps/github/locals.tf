@@ -97,5 +97,5 @@ locals {
     }
   }
 
-  repo_with_docker = ["twitch-bot", "meal-notifier"]
+  repo_with_docker = ["meal-notifier", "twitch-bot"]
 }
