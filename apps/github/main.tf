@@ -8,13 +8,15 @@ resource "github_repository" "repo" {
 }
 
 resource "github_actions_secret" "dockerhub_token"{
- repository = "twitch-bot"
+ for_each =  toset(local.repo_with_docker)
+ repository = each.key
  secret_name = "DOCKERHUB_TOKEN"
  plaintext_value = var.dockerhub_token
 }
 
 resource "github_actions_secret" "dockerhub_username"{
- repository = "twitch-bot"
+ for_each =  toset(local.repo_with_docker)
+ repository = each.key
  secret_name = "DOCKERHUB_USERNAME"
  plaintext_value = var.dockerhub_username
 }

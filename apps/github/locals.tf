@@ -96,4 +96,6 @@ locals {
       visibility = "public"
     }
   }
+
+  repo_with_docker = ["twitch-bot", "meal-notifier"]
 }
