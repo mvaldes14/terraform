@@ -7,8 +7,6 @@ terraform {
   }
 }
 
-
-
 provider "grafana" {
   url  = "https://grafana.mvaldes.dev"
   auth = var.grafana_api_token
