@@ -1,4 +1,41 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -24,14 +61,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -77,12 +114,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "sum(cloudflared_tunnel_server_locations)",
           "refId": "A"
@@ -95,7 +132,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -141,12 +178,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "cloudflared_tunnel_ha_connections",
           "refId": "A"
@@ -159,7 +196,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -205,12 +242,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "cloudflared_tunnel_request_errors",
           "refId": "A"
@@ -223,7 +260,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -264,12 +301,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "cloudflared_tunnel_total_requests",
           "refId": "A"
@@ -282,7 +319,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -327,12 +364,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "cloudflared_tunnel_timer_retries",
           "refId": "A"
@@ -345,7 +382,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -390,12 +427,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "cloudflared_tunnel_active_streams",
           "refId": "A"
@@ -408,7 +445,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -453,12 +490,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "cloudflared_tunnel_concurrent_requests_per_tunnel",
           "refId": "A"
@@ -471,7 +508,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -479,6 +516,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -534,7 +573,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -545,7 +585,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "rate(cloudflared_tunnel_response_by_code[5m])",
@@ -559,7 +599,8 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 36,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -573,6 +614,6 @@
   "timezone": "",
   "title": "Cloudflared Tunnel",
   "uid": "hWA2tMgRz",
-  "version": 3,
+  "version": 1,
   "weekStart": ""
 }

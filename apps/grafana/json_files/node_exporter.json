@@ -1,4 +1,47 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -26,8 +69,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 1860,
   "graphTooltip": 0,
-  "id": 6,
-  "iteration": 1653357967667,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -50,8 +92,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Busy state of all CPU cores together",
       "fieldConfig": {
@@ -113,7 +155,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "(((count(count(node_cpu_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}) by (cpu))) - avg(sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=~\"$node:$port\",job=~\"$job\"}[5m])))) * 100) / count(count(node_cpu_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}) by (cpu))",
@@ -121,7 +163,11 @@
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "CPU Busy",
@@ -129,8 +175,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Busy state of all CPU cores together (5 min average)",
       "fieldConfig": {
@@ -192,7 +238,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "avg(node_load5{instance=~\"$node:$port\",job=~\"$job\"}) /  count(count(node_cpu_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}) by (cpu)) * 100",
@@ -200,7 +246,11 @@
           "hide": false,
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "Sys Load (5m avg)",
@@ -208,8 +258,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Busy state of all CPU cores together (15 min average)",
       "fieldConfig": {
@@ -271,14 +321,18 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "avg(node_load15{instance=~\"$node:$port\",job=~\"$job\"}) /  count(count(node_cpu_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}) by (cpu)) * 100",
           "hide": false,
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "Sys Load (15m avg)",
@@ -286,8 +340,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Non available RAM memory",
       "fieldConfig": {
@@ -341,7 +395,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "((node_memory_MemTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"} - node_memory_MemFree_bytes{instance=~\"$node:$port\",job=~\"$job\"}) / (node_memory_MemTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"} )) * 100",
@@ -349,7 +403,11 @@
           "hide": true,
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "100 - ((node_memory_MemAvailable_bytes{instance=~\"$node:$port\",job=~\"$job\"} * 100) / node_memory_MemTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"})",
@@ -357,7 +415,11 @@
           "hide": false,
           "intervalFactor": 1,
           "refId": "B",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "RAM Used",
@@ -365,8 +427,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Used Swap",
       "fieldConfig": {
@@ -428,13 +490,17 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "((node_memory_SwapTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"} - node_memory_SwapFree_bytes{instance=~\"$node:$port\",job=~\"$job\"}) / (node_memory_SwapTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"} )) * 100",
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "SWAP Used",
@@ -442,8 +508,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Used Root FS",
       "fieldConfig": {
@@ -505,14 +571,18 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "100 - ((node_filesystem_avail_bytes{instance=~\"$node:$port\",job=~\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"} * 100) / node_filesystem_size_bytes{instance=~\"$node:$port\",job=~\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "Root FS Used",
@@ -520,8 +590,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Total number of CPU cores",
       "fieldConfig": {
@@ -580,7 +650,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "count(count(node_cpu_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}) by (cpu))",
@@ -588,7 +658,11 @@
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "CPU Cores",
@@ -596,8 +670,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "System uptime",
       "fieldConfig": {
@@ -658,13 +732,17 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "node_time_seconds{instance=~\"$node:$port\",job=~\"$job\"} - node_boot_time_seconds{instance=~\"$node:$port\",job=~\"$job\"}",
           "intervalFactor": 2,
           "refId": "A",
-          "step": 1800
+          "step": 1800,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "Uptime",
@@ -672,8 +750,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Total RootFS",
       "fieldConfig": {
@@ -737,7 +815,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "node_filesystem_size_bytes{instance=~\"$node:$port\",job=~\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"}",
@@ -745,7 +823,11 @@
           "hide": false,
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "RootFS Total",
@@ -753,8 +835,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Total RAM",
       "fieldConfig": {
@@ -814,13 +896,17 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "node_memory_MemTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "RAM Total",
@@ -828,8 +914,8 @@
     },
     {
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Total SWAP",
       "fieldConfig": {
@@ -889,13 +975,17 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "expr": "node_memory_SwapTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
           "intervalFactor": 1,
           "refId": "A",
-          "step": 900
+          "step": 900,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "title": "SWAP Total",
@@ -939,8 +1029,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "decimals": 2,
       "description": "Basic CPU info",
@@ -981,7 +1071,7 @@
         "alertThreshold": true
       },
       "percentage": true,
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1018,7 +1108,11 @@
           "intervalFactor": 2,
           "legendFormat": "Busy System",
           "refId": "A",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='user',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1027,7 +1121,11 @@
           "intervalFactor": 2,
           "legendFormat": "Busy User",
           "refId": "B",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='iowait',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1035,7 +1133,11 @@
           "intervalFactor": 2,
           "legendFormat": "Busy Iowait",
           "refId": "C",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=~\".*irq\",instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1043,7 +1145,11 @@
           "intervalFactor": 2,
           "legendFormat": "Busy IRQs",
           "refId": "D",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "sum (irate(node_cpu_seconds_total{mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1051,7 +1157,11 @@
           "intervalFactor": 2,
           "legendFormat": "Busy Other",
           "refId": "E",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1059,7 +1169,11 @@
           "intervalFactor": 2,
           "legendFormat": "Idle",
           "refId": "F",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "thresholds": [],
@@ -1121,8 +1235,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "decimals": 2,
       "description": "Basic memory usage",
@@ -1163,7 +1277,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1200,7 +1314,11 @@
           "intervalFactor": 2,
           "legendFormat": "RAM Total",
           "refId": "A",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "node_memory_MemTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"} - node_memory_MemFree_bytes{instance=~\"$node:$port\",job=~\"$job\"} - (node_memory_Cached_bytes{instance=~\"$node:$port\",job=~\"$job\"} + node_memory_Buffers_bytes{instance=~\"$node:$port\",job=~\"$job\"})",
@@ -1209,7 +1327,11 @@
           "intervalFactor": 2,
           "legendFormat": "RAM Used",
           "refId": "B",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "node_memory_Cached_bytes{instance=~\"$node:$port\",job=~\"$job\"} + node_memory_Buffers_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1217,7 +1339,11 @@
           "intervalFactor": 2,
           "legendFormat": "RAM Cache + Buffer",
           "refId": "C",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "node_memory_MemFree_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1225,7 +1351,11 @@
           "intervalFactor": 2,
           "legendFormat": "RAM Free",
           "refId": "D",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "(node_memory_SwapTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"} - node_memory_SwapFree_bytes{instance=~\"$node:$port\",job=~\"$job\"})",
@@ -1233,7 +1363,11 @@
           "intervalFactor": 2,
           "legendFormat": "SWAP Used",
           "refId": "E",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "thresholds": [],
@@ -1298,8 +1432,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Basic network info per interface",
       "fieldConfig": {
@@ -1341,7 +1475,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1361,7 +1495,11 @@
           "intervalFactor": 2,
           "legendFormat": "recv {{device}}",
           "refId": "A",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         },
         {
           "expr": "irate(node_network_transmit_bytes_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])*8",
@@ -1369,7 +1507,11 @@
           "intervalFactor": 2,
           "legendFormat": "trans {{device}} ",
           "refId": "B",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "thresholds": [],
@@ -1409,8 +1551,8 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "Prometheus",
-        "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
       "decimals": 3,
       "description": "Disk space used of all filesystems mounted",
@@ -1453,7 +1595,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1468,7 +1610,11 @@
           "intervalFactor": 2,
           "legendFormat": "{{mountpoint}}",
           "refId": "A",
-          "step": 240
+          "step": 240,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
         }
       ],
       "thresholds": [],
@@ -1534,8 +1680,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "description": "",
@@ -1585,7 +1731,11 @@
               "intervalFactor": 2,
               "legendFormat": "System - Processes executing in kernel mode",
               "refId": "A",
-              "step": 20
+              "step": 20,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='user',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1593,7 +1743,11 @@
               "intervalFactor": 2,
               "legendFormat": "User - Normal processes executing in user mode",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='nice',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1601,7 +1755,11 @@
               "intervalFactor": 2,
               "legendFormat": "Nice - Niced processes executing in user mode",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1609,7 +1767,11 @@
               "intervalFactor": 2,
               "legendFormat": "Idle - Waiting for something to happen",
               "refId": "D",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='iowait',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1617,7 +1779,11 @@
               "intervalFactor": 2,
               "legendFormat": "Iowait - Waiting for I/O to complete",
               "refId": "E",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='irq',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1625,7 +1791,11 @@
               "intervalFactor": 2,
               "legendFormat": "Irq - Servicing interrupts",
               "refId": "F",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='softirq',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1633,7 +1803,11 @@
               "intervalFactor": 2,
               "legendFormat": "Softirq - Servicing softirqs",
               "refId": "G",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='steal',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1641,7 +1815,11 @@
               "intervalFactor": 2,
               "legendFormat": "Steal - Time spent in other operating systems when running in a virtualized environment",
               "refId": "H",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='guest',instance=~\"$node:$port\",job=~\"$job\"}[5m])) * 100",
@@ -1649,7 +1827,11 @@
               "intervalFactor": 2,
               "legendFormat": "Guest - Time spent running a virtual CPU for a guest operating system",
               "refId": "I",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -1711,8 +1893,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "description": "",
@@ -1767,7 +1949,11 @@
               "intervalFactor": 2,
               "legendFormat": "Apps - Memory used by user-space applications",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_PageTables_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1776,7 +1962,11 @@
               "intervalFactor": 2,
               "legendFormat": "PageTables - Memory used to map between virtual and physical memory addresses",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_SwapCached_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1784,7 +1974,11 @@
               "intervalFactor": 2,
               "legendFormat": "SwapCache - Memory that keeps track of pages that have been fetched from swap but not yet been modified",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Slab_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1793,7 +1987,11 @@
               "intervalFactor": 2,
               "legendFormat": "Slab - Memory used by the kernel to cache data structures for its own use (caches like inode, dentry, etc)",
               "refId": "D",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Cached_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1802,7 +2000,11 @@
               "intervalFactor": 2,
               "legendFormat": "Cache - Parked file data (file content) cache",
               "refId": "E",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Buffers_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1811,7 +2013,11 @@
               "intervalFactor": 2,
               "legendFormat": "Buffers - Block device (e.g. harddisk) cache",
               "refId": "F",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_MemFree_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1820,7 +2026,11 @@
               "intervalFactor": 2,
               "legendFormat": "Unused - Free memory unassigned",
               "refId": "G",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "(node_memory_SwapTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"} - node_memory_SwapFree_bytes{instance=~\"$node:$port\",job=~\"$job\"})",
@@ -1829,7 +2039,11 @@
               "intervalFactor": 2,
               "legendFormat": "Swap - Swap space used",
               "refId": "H",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_HardwareCorrupted_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -1838,7 +2052,11 @@
               "intervalFactor": 2,
               "legendFormat": "Hardware Corrupted - Amount of RAM that the kernel identified as corrupted / not working",
               "refId": "I",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -1884,8 +2102,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 4,
           "fillGradient": 0,
@@ -1935,7 +2153,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_network_transmit_bytes_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])*8",
@@ -1943,7 +2165,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Transmit",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -1983,8 +2209,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 3,
           "description": "",
@@ -2035,7 +2261,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{mountpoint}}",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -2076,8 +2306,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -2213,14 +2443,22 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Reads completed",
               "refId": "A",
-              "step": 480
+              "step": 480,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_writes_completed_total{instance=~\"$node:$port\",job=~\"$job\",device=~\"[a-z]*[a-z]\"}[5m])",
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Writes completed",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -2262,8 +2500,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 3,
           "description": "",
@@ -2337,7 +2575,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Successfully read bytes",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_written_bytes_total{instance=~\"$node:$port\",job=~\"$job\",device=~\"[a-z]*[a-z]\"}[5m])",
@@ -2346,7 +2588,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Successfully written bytes",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -2389,8 +2635,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 3,
           "description": "",
@@ -2439,7 +2685,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Time spent doing I/Os",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -2517,8 +2767,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -2566,7 +2816,11 @@
               "intervalFactor": 2,
               "legendFormat": "Inactive - Memory which has been less recently used.  It is more eligible to be reclaimed for other purposes",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Active_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -2574,7 +2828,11 @@
               "intervalFactor": 2,
               "legendFormat": "Active - Memory that has been used more recently and usually not reclaimed unless absolutely necessary",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -2633,8 +2891,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -2691,7 +2949,11 @@
               "intervalFactor": 2,
               "legendFormat": "Committed_AS - Amount of memory presently allocated on the system",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_CommitLimit_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -2699,7 +2961,11 @@
               "intervalFactor": 2,
               "legendFormat": "CommitLimit - Amount of  memory currently available to be allocated on the system",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -2758,8 +3024,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -2808,7 +3074,11 @@
               "intervalFactor": 2,
               "legendFormat": "Inactive_file - File-backed memory on inactive LRU list",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Inactive_anon_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -2817,7 +3087,11 @@
               "intervalFactor": 2,
               "legendFormat": "Inactive_anon - Anonymous and swap cache on inactive LRU list, including tmpfs (shmem)",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Active_file_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -2826,7 +3100,11 @@
               "intervalFactor": 2,
               "legendFormat": "Active_file - File-backed memory on active LRU list",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Active_anon_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -2835,7 +3113,11 @@
               "intervalFactor": 2,
               "legendFormat": "Active_anon - Anonymous and swap cache on active least-recently-used (LRU) list, including tmpfs",
               "refId": "D",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -2896,8 +3178,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -2944,7 +3226,11 @@
               "intervalFactor": 2,
               "legendFormat": "Writeback - Memory which is actively being written back to disk",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_WritebackTmp_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -2952,7 +3238,11 @@
               "intervalFactor": 2,
               "legendFormat": "WritebackTmp - Memory used by FUSE for temporary writeback buffers",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Dirty_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -2960,7 +3250,11 @@
               "intervalFactor": 2,
               "legendFormat": "Dirty - Memory which is waiting to get written back to the disk",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3019,8 +3313,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3077,7 +3371,11 @@
               "intervalFactor": 2,
               "legendFormat": "Mapped - Used memory in mapped pages files which have been mmaped, such as libraries",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Shmem_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3085,7 +3383,11 @@
               "intervalFactor": 2,
               "legendFormat": "Shmem - Used shared memory (shared between several processes, thus including RAM disks)",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_ShmemHugePages_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3094,7 +3396,11 @@
               "intervalFactor": 2,
               "legendFormat": "ShmemHugePages - Memory used by shared memory (shmem) and tmpfs allocated  with huge pages",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_ShmemPmdMapped_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3103,7 +3409,11 @@
               "intervalFactor": 2,
               "legendFormat": "ShmemPmdMapped - Ammount of shared (shmem/tmpfs) memory backed by huge pages",
               "refId": "D",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3164,8 +3474,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3212,7 +3522,11 @@
               "intervalFactor": 2,
               "legendFormat": "SUnreclaim - Part of Slab, that cannot be reclaimed on memory pressure",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_SReclaimable_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3220,7 +3534,11 @@
               "intervalFactor": 2,
               "legendFormat": "SReclaimable - Part of Slab, that might be reclaimed, such as caches",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3280,8 +3598,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3329,7 +3647,11 @@
               "intervalFactor": 2,
               "legendFormat": "VmallocChunk - Largest contigious block of vmalloc area which is free",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_VmallocTotal_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3338,7 +3660,11 @@
               "intervalFactor": 2,
               "legendFormat": "VmallocTotal - Total size of vmalloc memory area",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_VmallocUsed_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3347,7 +3673,11 @@
               "intervalFactor": 2,
               "legendFormat": "VmallocUsed - Amount of vmalloc area which is used",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3406,8 +3736,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3455,7 +3785,11 @@
               "intervalFactor": 2,
               "legendFormat": "Bounce - Memory used for block device bounce buffers",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3515,8 +3849,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3568,7 +3902,11 @@
               "intervalFactor": 2,
               "legendFormat": "AnonHugePages - Memory in anonymous huge pages",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_AnonPages_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3576,7 +3914,11 @@
               "intervalFactor": 2,
               "legendFormat": "AnonPages - Memory in user pages not backed by files",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3635,8 +3977,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3684,7 +4026,11 @@
               "intervalFactor": 2,
               "legendFormat": "KernelStack - Kernel memory stack. This is not reclaimable",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Percpu_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3693,7 +4039,11 @@
               "intervalFactor": 2,
               "legendFormat": "PerCPU - Per CPU memory allocated dynamically by loadable modules",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3753,8 +4103,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3801,7 +4151,11 @@
               "intervalFactor": 2,
               "legendFormat": "HugePages_Free - Huge pages in the pool that are not yet allocated",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_HugePages_Rsvd{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3809,7 +4163,11 @@
               "intervalFactor": 2,
               "legendFormat": "HugePages_Rsvd - Huge pages for which a commitment to allocate from the pool has been made, but no allocation has yet been made",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_HugePages_Surp{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3817,7 +4175,11 @@
               "intervalFactor": 2,
               "legendFormat": "HugePages_Surp - Huge pages in the pool above the value in /proc/sys/vm/nr_hugepages",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3878,8 +4240,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -3926,7 +4288,11 @@
               "intervalFactor": 2,
               "legendFormat": "HugePages - Total size of the pool of huge pages",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Hugepagesize_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -3934,7 +4300,11 @@
               "intervalFactor": 2,
               "legendFormat": "Hugepagesize - Huge Page size",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -3995,8 +4365,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -4045,7 +4415,11 @@
               "intervalFactor": 2,
               "legendFormat": "DirectMap1G - Amount of pages mapped as this size",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_DirectMap2M_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -4054,7 +4428,11 @@
               "intervalFactor": 2,
               "legendFormat": "DirectMap2M - Amount of pages mapped as this size",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_DirectMap4k_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -4063,7 +4441,11 @@
               "intervalFactor": 2,
               "legendFormat": "DirectMap4K - Amount of pages mapped as this size",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4122,8 +4504,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -4171,7 +4553,11 @@
               "intervalFactor": 2,
               "legendFormat": "Unevictable - Amount of unevictable memory that can't be swapped out for a variety of reasons",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_memory_Mlocked_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -4179,7 +4565,11 @@
               "intervalFactor": 2,
               "legendFormat": "MLocked - Size of pages locked to memory using the mlock() system call",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4240,8 +4630,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -4288,7 +4678,11 @@
               "intervalFactor": 2,
               "legendFormat": "NFS Unstable - Memory in NFS pages sent to the server, but not yet commited to the storage",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4347,8 +4741,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -4399,7 +4793,11 @@
               "intervalFactor": 2,
               "legendFormat": "Pagesin - Page in operations",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_vmstat_pgpgout{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -4407,7 +4805,11 @@
               "intervalFactor": 2,
               "legendFormat": "Pagesout - Page out operations",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4447,8 +4849,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -4499,7 +4901,11 @@
               "intervalFactor": 2,
               "legendFormat": "Pswpin - Pages swapped in",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_vmstat_pswpout{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -4507,7 +4913,11 @@
               "intervalFactor": 2,
               "legendFormat": "Pswpout - Pages swapped out",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4565,8 +4975,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -4620,7 +5030,11 @@
               "intervalFactor": 2,
               "legendFormat": "Pgfault - Page major and minor fault operations",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_vmstat_pgmajfault{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -4628,7 +5042,11 @@
               "intervalFactor": 2,
               "legendFormat": "Pgmajfault - Major page fault operations",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_vmstat_pgfault{instance=~\"$node:$port\",job=~\"$job\"}[5m])  - irate(node_vmstat_pgmajfault{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -4636,7 +5054,11 @@
               "intervalFactor": 2,
               "legendFormat": "Pgminfault - Minor page fault operations",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4697,8 +5119,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 2,
           "fill": 2,
@@ -4746,7 +5168,11 @@
               "intervalFactor": 2,
               "legendFormat": "oom killer invocations ",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4805,8 +5231,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -4858,7 +5284,11 @@
               "intervalFactor": 2,
               "legendFormat": "Estimated error in seconds",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_timex_offset_seconds{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -4868,7 +5298,11 @@
               "intervalFactor": 2,
               "legendFormat": "Time offset in between local system and reference clock",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_timex_maxerror_seconds{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -4878,7 +5312,11 @@
               "intervalFactor": 2,
               "legendFormat": "Maximum error in seconds",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -4919,8 +5357,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -4966,7 +5404,11 @@
               "intervalFactor": 2,
               "legendFormat": "Phase-locked loop time adjust",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5006,8 +5448,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -5058,7 +5500,11 @@
               "intervalFactor": 2,
               "legendFormat": "Is clock synchronized to a reliable server (1 = yes, 0 = no)",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_timex_frequency_adjustment_ratio{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -5067,7 +5513,11 @@
               "intervalFactor": 2,
               "legendFormat": "Local clock frequency adjustment",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5107,8 +5557,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -5154,7 +5604,11 @@
               "intervalFactor": 2,
               "legendFormat": "Seconds between clock ticks",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_timex_tai_offset_seconds{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -5163,7 +5617,11 @@
               "intervalFactor": 2,
               "legendFormat": "International Atomic Time (TAI) offset",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5221,8 +5679,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5267,7 +5725,11 @@
               "intervalFactor": 2,
               "legendFormat": "Processes blocked waiting for I/O to complete",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_procs_running{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -5275,7 +5737,11 @@
               "intervalFactor": 2,
               "legendFormat": "Processes in runnable state",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5316,8 +5782,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5363,7 +5829,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ state }}",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5404,8 +5874,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5451,7 +5921,11 @@
               "intervalFactor": 2,
               "legendFormat": "Processes forks second",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5492,8 +5966,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5543,7 +6017,11 @@
               "intervalFactor": 2,
               "legendFormat": "Processes virtual memory size in bytes",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "process_resident_memory_max_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -5552,7 +6030,11 @@
               "intervalFactor": 2,
               "legendFormat": "Maximum amount of virtual memory available in bytes",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(process_virtual_memory_bytes{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -5561,7 +6043,11 @@
               "intervalFactor": 2,
               "legendFormat": "Processes virtual memory size in bytes",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(process_virtual_memory_max_bytes{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -5570,7 +6056,11 @@
               "intervalFactor": 2,
               "legendFormat": "Maximum amount of virtual memory available in bytes",
               "refId": "D",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5611,8 +6101,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5664,7 +6154,11 @@
               "intervalFactor": 2,
               "legendFormat": "Number of PIDs",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_processes_max_processes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -5673,7 +6167,11 @@
               "intervalFactor": 2,
               "legendFormat": "PIDs limit",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5714,8 +6212,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5766,7 +6264,11 @@
               "intervalFactor": 2,
               "legendFormat": "CPU {{ cpu }} - seconds spent running a process",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_schedstat_waiting_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -5775,7 +6277,11 @@
               "intervalFactor": 2,
               "legendFormat": "CPU {{ cpu }} - seconds spent by processing waiting for this CPU",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5815,8 +6321,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5868,7 +6374,11 @@
               "intervalFactor": 2,
               "legendFormat": "Allocated threads",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_processes_max_threads{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -5877,7 +6387,11 @@
               "intervalFactor": 2,
               "legendFormat": "Threads limit",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -5936,8 +6450,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -5982,7 +6496,11 @@
               "intervalFactor": 2,
               "legendFormat": "Context switches",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_intr_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -5991,7 +6509,11 @@
               "intervalFactor": 2,
               "legendFormat": "Interrupts",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6032,8 +6554,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6078,7 +6600,11 @@
               "intervalFactor": 4,
               "legendFormat": "Load 1m",
               "refId": "A",
-              "step": 480
+              "step": 480,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_load5{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6086,7 +6612,11 @@
               "intervalFactor": 4,
               "legendFormat": "Load 5m",
               "refId": "B",
-              "step": 480
+              "step": 480,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_load15{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6094,7 +6624,11 @@
               "intervalFactor": 4,
               "legendFormat": "Load 15m",
               "refId": "C",
-              "step": 480
+              "step": 480,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6135,8 +6669,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6192,7 +6726,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ type }} - {{ info }}",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6233,8 +6771,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6280,7 +6818,11 @@
               "intervalFactor": 2,
               "legendFormat": "CPU {{ cpu }}",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6320,8 +6862,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6366,7 +6908,11 @@
               "intervalFactor": 2,
               "legendFormat": "Entropy available to random number generators",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6407,8 +6953,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6454,7 +7000,11 @@
               "intervalFactor": 2,
               "legendFormat": "Time spent",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6494,8 +7044,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6545,7 +7095,11 @@
               "intervalFactor": 2,
               "legendFormat": "Maximum open file descriptors",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "process_open_fds{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6553,7 +7107,11 @@
               "intervalFactor": 2,
               "legendFormat": "Open file descriptors",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6612,8 +7170,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6669,7 +7227,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ chip }} {{ sensor }} temp",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_hwmon_temp_crit_alarm_celsius{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6679,7 +7241,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ chip }} {{ sensor }} Critical Alarm",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_hwmon_temp_crit_celsius{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6688,7 +7254,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ chip }} {{ sensor }} Critical",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_hwmon_temp_crit_hyst_celsius{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6698,7 +7268,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ chip }} {{ sensor }} Critical Historical",
               "refId": "D",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_hwmon_temp_max_celsius{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6708,7 +7282,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ chip }} {{ sensor }} Max",
               "refId": "E",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6749,8 +7327,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6802,7 +7380,11 @@
               "intervalFactor": 2,
               "legendFormat": "Current {{ name }} in {{ type }}",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_cooling_device_max_state{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -6811,7 +7393,11 @@
               "intervalFactor": 2,
               "legendFormat": "Max {{ name }} in {{ type }}",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6851,8 +7437,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -6898,7 +7484,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ power_supply }} online",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -6956,8 +7546,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -7002,7 +7592,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ name }} Connections",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -7043,8 +7637,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -7110,7 +7704,11 @@
               "intervalFactor": 2,
               "legendFormat": "Activating",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_systemd_units{instance=~\"$node:$port\",job=~\"$job\",state=\"active\"}",
@@ -7119,7 +7717,11 @@
               "intervalFactor": 2,
               "legendFormat": "Active",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_systemd_units{instance=~\"$node:$port\",job=~\"$job\",state=\"deactivating\"}",
@@ -7128,7 +7730,11 @@
               "intervalFactor": 2,
               "legendFormat": "Deactivating",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_systemd_units{instance=~\"$node:$port\",job=~\"$job\",state=\"failed\"}",
@@ -7137,7 +7743,11 @@
               "intervalFactor": 2,
               "legendFormat": "Failed",
               "refId": "D",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_systemd_units{instance=~\"$node:$port\",job=~\"$job\",state=\"inactive\"}",
@@ -7146,7 +7756,11 @@
               "intervalFactor": 2,
               "legendFormat": "Inactive",
               "refId": "E",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -7204,8 +7818,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -7337,14 +7951,22 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Reads completed",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_writes_completed_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Writes completed",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -7384,8 +8006,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -7518,7 +8140,11 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Read bytes",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_written_bytes_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -7526,7 +8152,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Written bytes",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -7566,8 +8196,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 3,
@@ -7702,7 +8332,11 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Read time",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_write_time_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -7710,7 +8344,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Write time",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -7750,8 +8388,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -7881,7 +8519,11 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - IO time weighted",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -7922,8 +8564,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -8057,14 +8699,22 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Read merged",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_writes_merged_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Write merged",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -8104,8 +8754,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 3,
@@ -8235,7 +8885,11 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - IO time",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_discard_time_seconds_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -8243,7 +8897,11 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - discard time",
               "refId": "B",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -8284,8 +8942,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -8415,7 +9073,11 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - IO now",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -8456,8 +9118,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -8586,7 +9248,11 @@
               "intervalFactor": 4,
               "legendFormat": "{{device}} - Discards completed",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_disk_discards_merged_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -8594,7 +9260,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Discards merged",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -8652,8 +9322,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "decimals": 3,
           "description": "",
@@ -8703,7 +9373,11 @@
               "legendFormat": "{{mountpoint}} - Available",
               "metric": "",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_filesystem_free_bytes{instance=~\"$node:$port\",job=~\"$job\",device!~'rootfs'}",
@@ -8712,7 +9386,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{mountpoint}} - Free",
               "refId": "B",
-              "step": 2
+              "step": 2,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_filesystem_size_bytes{instance=~\"$node:$port\",job=~\"$job\",device!~'rootfs'}",
@@ -8721,7 +9399,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{mountpoint}} - Size",
               "refId": "C",
-              "step": 2
+              "step": 2,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -8762,8 +9444,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -8811,7 +9493,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{mountpoint}} - Free file nodes",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -8852,8 +9538,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -8899,7 +9585,11 @@
               "intervalFactor": 4,
               "legendFormat": "Max open files",
               "refId": "A",
-              "step": 8
+              "step": 8,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_filefd_allocated{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -8907,7 +9597,11 @@
               "intervalFactor": 2,
               "legendFormat": "Open files",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -8948,8 +9642,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -8997,7 +9691,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{mountpoint}} - File nodes total",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9040,8 +9738,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -9090,7 +9788,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{mountpoint}} - ReadOnly",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_filesystem_device_error{instance=~\"$node:$port\",job=~\"$job\",device!~'rootfs'}",
@@ -9099,7 +9801,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{mountpoint}} - Device error",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9164,8 +9870,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9217,7 +9923,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_network_transmit_packets_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -9226,7 +9936,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Transmit",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9266,8 +9980,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9322,7 +10036,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive errors",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_network_transmit_errs_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -9330,7 +10048,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Rransmit errors",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9370,8 +10092,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9426,7 +10148,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive drop",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_network_transmit_drop_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -9434,7 +10160,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Transmit drop",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9474,8 +10204,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9530,7 +10260,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive compressed",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_network_transmit_compressed_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -9538,7 +10272,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Transmit compressed",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9578,8 +10316,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9634,7 +10372,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive multicast",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9674,8 +10416,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9730,7 +10472,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive fifo",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_network_transmit_fifo_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -9738,7 +10484,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Transmit fifo",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9778,8 +10528,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9835,7 +10585,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Receive frame",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9875,8 +10629,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -9926,7 +10680,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Statistic transmit_carrier",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -9966,8 +10724,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10022,7 +10780,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{device}} - Transmit colls",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10062,8 +10824,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10114,7 +10876,11 @@
               "intervalFactor": 2,
               "legendFormat": "NF conntrack entries",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_nf_conntrack_entries_limit{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -10122,7 +10888,11 @@
               "intervalFactor": 2,
               "legendFormat": "NF conntrack limit",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10163,8 +10933,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10209,7 +10979,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ device }} - ARP entries",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10250,8 +11024,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10296,7 +11070,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ device }} - Bytes",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10338,8 +11116,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10384,7 +11162,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ device }} - Speed",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10426,8 +11208,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10472,7 +11254,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{ device }} -   Interface transmit queue length",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10514,8 +11300,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10571,7 +11357,11 @@
               "intervalFactor": 2,
               "legendFormat": "CPU {{cpu}} - Processed",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_softnet_dropped_total{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -10580,7 +11370,11 @@
               "intervalFactor": 2,
               "legendFormat": "CPU {{cpu}} - Dropped",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10620,8 +11414,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10672,7 +11466,11 @@
               "intervalFactor": 2,
               "legendFormat": "CPU {{cpu}} - Squeezed",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10712,8 +11510,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10763,14 +11561,22 @@
               "intervalFactor": 2,
               "legendFormat": "{{interface}} - Operational state UP",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_network_carrier{instance=~\"$node:$port\",job=~\"$job\"}",
               "format": "time_series",
               "instant": false,
               "legendFormat": "{{device}} - Physical link state",
-              "refId": "B"
+              "refId": "B",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10828,8 +11634,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -10878,7 +11684,11 @@
               "intervalFactor": 2,
               "legendFormat": "TCP_alloc - Allocated sockets",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_TCP_inuse{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -10887,7 +11697,11 @@
               "intervalFactor": 2,
               "legendFormat": "TCP_inuse - Tcp sockets currently in use",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_TCP_mem{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -10897,7 +11711,11 @@
               "intervalFactor": 2,
               "legendFormat": "TCP_mem - Used memory for tcp",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_TCP_orphan{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -10906,7 +11724,11 @@
               "intervalFactor": 2,
               "legendFormat": "TCP_orphan - Orphan sockets",
               "refId": "D",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_TCP_tw{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -10915,7 +11737,11 @@
               "intervalFactor": 2,
               "legendFormat": "TCP_tw - Sockets wating close",
               "refId": "E",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -10956,8 +11782,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11006,7 +11832,11 @@
               "intervalFactor": 2,
               "legendFormat": "UDPLITE_inuse - Udplite sockets currently in use",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_UDP_inuse{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -11015,7 +11845,11 @@
               "intervalFactor": 2,
               "legendFormat": "UDP_inuse - Udp sockets currently in use",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_UDP_mem{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -11024,7 +11858,11 @@
               "intervalFactor": 2,
               "legendFormat": "UDP_mem - Used memory for udp",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11065,8 +11903,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11115,7 +11953,11 @@
               "intervalFactor": 2,
               "legendFormat": "Sockets_used - Sockets currently in use",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11156,8 +11998,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11206,7 +12048,11 @@
               "intervalFactor": 2,
               "legendFormat": "mem_bytes - TCP sockets in that state",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_UDP_mem_bytes{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -11215,7 +12061,11 @@
               "intervalFactor": 2,
               "legendFormat": "mem_bytes - UDP sockets in that state",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11256,8 +12106,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11306,7 +12156,11 @@
               "intervalFactor": 2,
               "legendFormat": "FRAG_inuse - Frag sockets currently in use",
               "refId": "A",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_FRAG_memory{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -11315,7 +12169,11 @@
               "intervalFactor": 2,
               "legendFormat": "FRAG_memory - Used memory for frag",
               "refId": "B",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_sockstat_RAW_inuse{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -11324,7 +12182,11 @@
               "intervalFactor": 2,
               "legendFormat": "RAW_inuse - Raw sockets currently in use",
               "refId": "C",
-              "step": 240
+              "step": 240,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11383,8 +12245,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11442,7 +12304,11 @@
               "intervalFactor": 2,
               "legendFormat": "InOctets - Received octets",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_IpExt_OutOctets{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -11450,7 +12316,11 @@
               "intervalFactor": 2,
               "legendFormat": "OutOctets - Sent octets",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11490,8 +12360,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11543,7 +12413,11 @@
               "intervalFactor": 2,
               "legendFormat": "Forwarding - IP forwarding",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11584,8 +12458,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11641,7 +12515,11 @@
               "intervalFactor": 2,
               "legendFormat": "InMsgs -  Messages which the entity received. Note that this counter includes all those counted by icmpInErrors",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Icmp_OutMsgs{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -11650,7 +12528,11 @@
               "intervalFactor": 2,
               "legendFormat": "OutMsgs - Messages which this entity attempted to send. Note that this counter includes all those counted by icmpOutErrors",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11690,8 +12572,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11747,7 +12629,11 @@
               "intervalFactor": 2,
               "legendFormat": "InErrors - Messages which the entity received but determined as having ICMP-specific errors (bad ICMP checksums, bad length, etc.)",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11787,8 +12673,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11848,7 +12734,11 @@
               "intervalFactor": 2,
               "legendFormat": "InDatagrams - Datagrams received",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Udp_OutDatagrams{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -11857,7 +12747,11 @@
               "intervalFactor": 2,
               "legendFormat": "OutDatagrams - Datagrams sent",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -11897,8 +12791,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -11949,7 +12843,11 @@
               "intervalFactor": 2,
               "legendFormat": "InErrors - UDP Datagrams that could not be delivered to an application",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Udp_NoPorts{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -11958,13 +12856,21 @@
               "intervalFactor": 2,
               "legendFormat": "NoPorts - UDP Datagrams received on a port with no listener",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_UdpLite_InErrors{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
               "interval": "",
               "legendFormat": "InErrors Lite - UDPLite Datagrams that could not be delivered to an application",
-              "refId": "C"
+              "refId": "C",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Udp_RcvbufErrors{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -11973,7 +12879,11 @@
               "intervalFactor": 2,
               "legendFormat": "RcvbufErrors - UDP buffer errors received",
               "refId": "D",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Udp_SndbufErrors{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -11982,7 +12892,11 @@
               "intervalFactor": 2,
               "legendFormat": "SndbufErrors - UDP buffer errors send",
               "refId": "E",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12022,8 +12936,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -12084,7 +12998,11 @@
               "intervalFactor": 2,
               "legendFormat": "InSegs - Segments received, including those received in error. This count includes segments received on currently established connections",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Tcp_OutSegs{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -12093,7 +13011,11 @@
               "intervalFactor": 2,
               "legendFormat": "OutSegs - Segments sent, including those on current connections but excluding those containing only retransmitted octets",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12133,8 +13055,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -12188,7 +13110,11 @@
               "intervalFactor": 2,
               "legendFormat": "ListenOverflows - Times the listen queue of a socket overflowed",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_TcpExt_ListenDrops{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -12198,7 +13124,11 @@
               "intervalFactor": 2,
               "legendFormat": "ListenDrops - SYNs to LISTEN sockets ignored",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_TcpExt_TCPSynRetrans{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -12207,19 +13137,31 @@
               "intervalFactor": 2,
               "legendFormat": "TCPSynRetrans - SYN-SYN/ACK retransmits to break down retransmissions in SYN, fast/timeout retransmits",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Tcp_RetransSegs{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
               "interval": "",
               "legendFormat": "RetransSegs - Segments retransmitted - that is, the number of TCP segments transmitted containing one or more previously transmitted octets",
-              "refId": "D"
+              "refId": "D",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Tcp_InErrs{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
               "interval": "",
               "legendFormat": "InErrs - Segments received in error (e.g., bad TCP checksums)",
-              "refId": "E"
+              "refId": "E",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12260,8 +13202,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -12318,7 +13260,11 @@
               "intervalFactor": 2,
               "legendFormat": "CurrEstab - TCP connections for which the current state is either ESTABLISHED or CLOSE- WAIT",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_netstat_Tcp_MaxConn{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -12328,7 +13274,11 @@
               "intervalFactor": 2,
               "legendFormat": "MaxConn - Limit on the total number of TCP connections the entity can support (Dinamic is \"-1\")",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12369,8 +13319,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -12429,7 +13379,11 @@
               "intervalFactor": 2,
               "legendFormat": "SyncookiesFailed - Invalid SYN cookies received",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_TcpExt_SyncookiesRecv{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -12439,7 +13393,11 @@
               "intervalFactor": 2,
               "legendFormat": "SyncookiesRecv - SYN cookies received",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_TcpExt_SyncookiesSent{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -12449,7 +13407,11 @@
               "intervalFactor": 2,
               "legendFormat": "SyncookiesSent - SYN cookies sent",
               "refId": "C",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12489,8 +13451,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "fill": 2,
           "fillGradient": 0,
@@ -12540,7 +13502,11 @@
               "intervalFactor": 2,
               "legendFormat": "ActiveOpens - TCP connections that have made a direct transition to the SYN-SENT state from the CLOSED state",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "irate(node_netstat_Tcp_PassiveOpens{instance=~\"$node:$port\",job=~\"$job\"}[5m])",
@@ -12549,7 +13515,11 @@
               "intervalFactor": 2,
               "legendFormat": "PassiveOpens - TCP connections that have made a direct transition to the SYN-RCVD state from the LISTEN state",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12608,8 +13578,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -12658,7 +13628,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{collector}} - Scrape duration",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12698,8 +13672,8 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": {
-            "type": "Prometheus",
-            "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "",
           "fill": 2,
@@ -12752,7 +13726,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{collector}} - Scrape success",
               "refId": "A",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "expr": "node_textfile_scrape_error{instance=~\"$node:$port\",job=~\"$job\"}",
@@ -12762,7 +13740,11 @@
               "intervalFactor": 2,
               "legendFormat": "{{collector}} - Scrape textfile error (1 = true)",
               "refId": "B",
-              "step": 4
+              "step": 4,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "thresholds": [],
@@ -12802,7 +13784,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 36,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [
     "linux"
@@ -12812,8 +13794,8 @@
       {
         "current": {
           "selected": false,
-          "text": "default",
-          "value": "default"
+          "text": "No data sources found",
+          "value": ""
         },
         "hide": 0,
         "includeAll": false,
@@ -12829,14 +13811,10 @@
         "type": "datasource"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "acer",
-          "value": "acer"
-        },
+        "current": {},
         "datasource": {
-          "type": "Prometheus",
-          "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "",
         "hide": 0,
@@ -12859,14 +13837,10 @@
         "useTags": false
       },
       {
-        "current": {
-          "selected": false,
-          "text": "acer",
-          "value": "acer"
-        },
+        "current": {},
         "datasource": {
-          "type": "Prometheus",
-          "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "",
         "hide": 0,
@@ -12889,14 +13863,10 @@
         "useTags": false
       },
       {
-        "current": {
-          "selected": false,
-          "text": "192.168.1.20",
-          "value": "192.168.1.20"
-        },
+        "current": {},
         "datasource": {
-          "type": "Prometheus",
-          "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "",
         "hide": 2,
@@ -12919,14 +13889,10 @@
         "useTags": false
       },
       {
-        "current": {
-          "selected": false,
-          "text": "9100",
-          "value": "9100"
-        },
+        "current": {},
         "datasource": {
-          "type": "Prometheus",
-          "uid": "f7f5252d-a5c2-4a27-a786-0ffb68089e6c"
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "",
         "hide": 0,
@@ -12982,6 +13948,6 @@
   "timezone": "browser",
   "title": "Node Exporter Full",
   "uid": "rYdddlPWk",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }
