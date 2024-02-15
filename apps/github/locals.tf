@@ -8,8 +8,8 @@ locals {
       visibility   = "public"
     }
 
-    "api-go-templ" = {
-      name         = "api-go-templ"
+    "api-go-otel-fuego" = {
+      name         = "api-go-otel-fuego"
       private       = false
       license      = "MIT"
       topics       = ["homelab"]
