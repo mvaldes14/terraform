@@ -9,7 +9,7 @@ locals {
     }
 
     "api-go-otel-fuego" = {
-      name         = "api-go-otel-fuego"
+      name         = "api-go-otel"
       private       = false
       license      = "MIT"
       topics       = ["homelab"]
