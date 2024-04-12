@@ -12,11 +12,14 @@ resource "grafana_data_source" "github" {
   json_data_encoded = jsonencode({
     owner = ""
   })
+  secure_json_data_encoded = jsonencode({
+    accessToken = var.github_token
+  })
 }
 
 
 resource "grafana_data_source" "elastic" {
-  type               = "Elasticsearch"
+  type               = "elasticsearch"
   name               = "elastic"
   url                = "http://homelab-es-elastic.elastic"
   basic_auth_enabled = true
