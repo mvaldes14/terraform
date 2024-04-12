@@ -1,7 +1,8 @@
 resource "grafana_data_source" "prometheus" {
-  type = "prometheus"
-  url  = "http://prometheus.local.net"
-  name = "Prometheus"
+  type       = "prometheus"
+  url        = "http://prometheus.local.net"
+  name       = "Prometheus"
+  is_default = true
 }
 
 
@@ -15,7 +16,7 @@ resource "grafana_data_source" "github" {
 
 
 resource "grafana_data_source" "elastic" {
-  type               = "elastic"
+  type               = "Elasticsearch"
   name               = "elastic"
   url                = "http://homelab-es-elastic.elastic"
   basic_auth_enabled = true
