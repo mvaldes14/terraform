@@ -22,5 +22,6 @@ resource "grafana_notification_policy" "telegram" {
       value = "enabled"
     }
     contact_point = grafana_contact_point.telegram.name
+    group_by      = ["..."]
   }
 }
