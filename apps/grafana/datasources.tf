@@ -12,3 +12,19 @@ resource "grafana_data_source" "github" {
     owner = ""
   })
 }
+
+
+resource "grafana_data_source" "elastic" {
+  type               = "elastic"
+  name               = "elastic"
+  url                = "http://homelab-es-elastic.elastic"
+  basic_auth_enabled = true
+  secure_json_data_encoded = jsonencode({
+    basicAuthUsername = "elastic"
+    basicAuthPassword = var.elasticsearch_password
+  })
+  json_data_encoded = jsonencode({
+    index = "logs-*"
+  })
+
+}
