@@ -20,7 +20,7 @@ resource "grafana_data_source" "github" {
 
 resource "grafana_data_source" "elastic-logs" {
   type               = "elasticsearch"
-  name               = "elastic"
+  name               = "elastic-logs"
   url                = "https://homelab-es-elastic.elastic:9200"
   basic_auth_enabled = true
   secure_json_data_encoded = jsonencode({
@@ -36,7 +36,7 @@ resource "grafana_data_source" "elastic-logs" {
 
 resource "grafana_data_source" "elastic-twitch" {
   type               = "elasticsearch"
-  name               = "elastic"
+  name               = "elastic-twitch"
   url                = "https://homelab-es-elastic.elastic:9200"
   basic_auth_enabled = true
   secure_json_data_encoded = jsonencode({
