@@ -30,7 +30,7 @@ resource "grafana_data_source" "elastic-logs" {
   json_data_encoded = jsonencode({
     index         = "logs-*"
     tlsSkipVerify = true
-    interval      = "nil"
+    interval      = null
   })
 }
 
@@ -46,6 +46,6 @@ resource "grafana_data_source" "elastic-twitch" {
   json_data_encoded = jsonencode({
     index         = "twitch"
     tlsSkipVerify = true
-    interval      = "nil"
+    interval      = null
   })
 }
