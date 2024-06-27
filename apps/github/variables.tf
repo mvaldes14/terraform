@@ -16,5 +16,6 @@ variable "telegram_to" {
 }
 variable "ansible_vault_password" {
   type      = string
+  default   = "password"
   sensitive = true
 }
