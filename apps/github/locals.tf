@@ -95,6 +95,14 @@ locals {
       topics = [ "homelab"]
       visibility = "public"
     }
+
+    "linear.nvim" = {
+      name = "linear.nvim"
+      private = "false"
+      license = "MIT"
+      topics = [ "neovim"]
+      visibility = "public"
+    }
   }
 
   repo_with_docker = ["meal-notifier", "twitch-bot"]
