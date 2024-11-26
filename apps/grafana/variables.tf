@@ -1,24 +1,19 @@
-variable "grafana_api_token" {
+variable "GRAFANA_API_TOKEN" {
   type      = string
   sensitive = true
 }
 
-variable "elasticsearch_password" {
+variable "GITHUB_TOKEN" {
   type      = string
   sensitive = true
 }
 
-variable "github_token" {
+variable "TELEGRAM_TOKEN" {
   type      = string
   sensitive = true
 }
 
-variable "telegram_token" {
-  type      = string
-  sensitive = true
-}
-
-variable "telegram_chat_id" {
+variable "TELEGRAM_CHAT_ID" {
   type      = string
   sensitive = true
 }

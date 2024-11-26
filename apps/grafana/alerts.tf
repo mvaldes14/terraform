@@ -2,8 +2,8 @@ resource "grafana_contact_point" "telegram" {
   name = "telegram"
 
   telegram {
-    token   = var.telegram_token
-    chat_id = var.telegram_chat_id
+    token   = var.TELEGRAM_TOKEN
+    chat_id = var.TELEGRAM_CHAT_ID
   }
 }
 

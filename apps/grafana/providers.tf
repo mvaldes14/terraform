@@ -9,5 +9,5 @@ terraform {
 
 provider "grafana" {
   url  = "https://grafana.mvaldes.dev"
-  auth = var.grafana_api_token
+  auth = var.GRAFANA_API_TOKEN
 }
