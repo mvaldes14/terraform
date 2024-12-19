@@ -81,5 +81,5 @@ locals {
     }
   }
 
-  repo_with_secrets = ["meal-notifier", "twitch-bot"]
+  repo_with_secrets = toset(["meal-notifier", "twitch-bot"])
 }

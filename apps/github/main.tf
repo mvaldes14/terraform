@@ -8,35 +8,29 @@ resource "github_repository" "repo" {
 }
 
 resource "github_actions_secret" "dockerhub_token" {
-  for_each        = toset(local.repo_with_secrets)
+  for_each        = local.repo_with_secrets
   repository      = each.key
   secret_name     = "DOCKERHUB_TOKEN"
   plaintext_value = var.dockerhub_token
 }
 
 resource "github_actions_secret" "dockerhub_username" {
-  for_each        = toset(local.repo_with_secrets)
+  for_each        = local.repo_with_secrets
   repository      = each.key
   secret_name     = "DOCKERHUB_USERNAME"
   plaintext_value = var.dockerhub_username
 }
 
 resource "github_actions_secret" "telegram_chat" {
-  for_each        = toset(local.repo_with_secrets)
+  for_each        = local.repo_with_secrets
   repository      = each.key
   secret_name     = "TELEGRAM_TOKEN"
   plaintext_value = var.telegram_token
 }
 
 resource "github_actions_secret" "telegram_to" {
-  for_each        = toset(local.repo_with_secrets)
+  for_each        = local.repo_with_secrets
   repository      = each.key
   secret_name     = "TELEGRAM_TO"
   plaintext_value = var.telegram_to
-}
-
-resource "github_actions_secret" "ansible_vault_password" {
-  repository      = "ansible_playbooks"
-  secret_name     = "ANSIBLE_VAULT_PASSWORD"
-  plaintext_value = var.ansible_vault_password
 }
