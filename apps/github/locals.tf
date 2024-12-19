@@ -1,109 +1,85 @@
 locals {
   repositories = {
     "meal-notifier" = {
-      name         = "meal-notifier"
-      private      = false
-      license      = "MIT"
-      topics       = ["automation"]
-      visibility   = "public"
-    }
-
-    "api-go-otel-fuego" = {
-      name         = "api-go-otel"
-      private       = false
-      license      = "MIT"
-      topics       = ["homelab"]
-      visibility   = "public"
+      name       = "meal-notifier"
+      private    = false
+      license    = "MIT"
+      topics     = ["automation"]
+      visibility = "public"
     }
 
     "k8s-apps" = {
-      name         = "k8s-apps"
-      private      = false
-      license      = "MIT"
-      topics        = ["homelab"]
-      visibility   = "public"
+      name       = "k8s-apps"
+      private    = false
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "public"
     }
 
     "ansible_playbooks" = {
-      name         = "ansible_playbooks"
-      private      = false
-      license      = "MIT"
-      topics       = ["automation"]
-      visibility   = "public"
+      name       = "ansible_playbooks"
+      private    = false
+      license    = "MIT"
+      topics     = ["automation"]
+      visibility = "public"
     }
 
     "dotfiles" = {
-      name         = "dotfiles"
-      private      = false
-      license      = "MIT"
-      topics       = ["homelab"]
-      visibility   = "public"
+      name       = "dotfiles"
+      private    = false
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "public"
     }
 
     "chef" = {
-      name         = "chef"
-      private      = false
-      license      = "MIT"
-      topics       = ["automation"]
-      visibility   = "public"
+      name       = "chef"
+      private    = false
+      license    = "MIT"
+      topics     = ["automation"]
+      visibility = "public"
     }
 
     "pulumi" = {
-      name         = "pulumi"
-      private      = false
-      license      = "MIT"
-      topics       = ["automation"]
-      visibility   = "public"
-    }
-
-    "obs-wiki" = {
-      name         = "obs-wiki"
-      private      = false
-      license      = "MIT"
-      topics       = ["homelab"]
-      visibility   = "private"
+      name       = "pulumi"
+      private    = false
+      license    = "MIT"
+      topics     = ["automation"]
+      visibility = "public"
     }
 
     "twitch-bot" = {
-      name         = "twitch-bot"
-      private      = false
-      license      = "MIT"
-      topics       = ["homelab"]
-      visibility   = "public"
+      name       = "twitch-bot"
+      private    = false
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "public"
     }
 
-    "obs-go-cli" = {
-      name = "obs-go-cli"
-      private = "false"
-      license = "MIT"
-      topics = [ "homelab"]
-      visibility = "public"
-    }
-    
     "dotfiles-nix" = {
-      name = "dotfiles-nix"
-      private = "false"
-      license = "MIT"
-      topics = [ "homelab"]
+      name       = "dotfiles-nix"
+      private    = "false"
+      license    = "MIT"
+      topics     = ["homelab"]
       visibility = "public"
     }
-    
+
     "deckmaster-config" = {
-      name = "deckmaster-config"
-      private = "false"
-      license = "MIT"
-      topics = [ "homelab"]
+      name       = "deckmaster-config"
+      private    = "false"
+      license    = "MIT"
+      topics     = ["homelab"]
       visibility = "public"
     }
 
     "linear.nvim" = {
-      name = "linear.nvim"
-      private = "false"
-      license = "MIT"
-      topics = [ "neovim"]
+      name       = "linear.nvim"
+      private    = "false"
+      license    = "MIT"
+      topics     = ["neovim"]
       visibility = "public"
     }
   }
 
-  repo_with_docker = ["meal-notifier", "twitch-bot"]
+  repo_with_secrets = ["meal-notifier", "twitch-bot"]
 }
