@@ -80,7 +80,7 @@ locals {
       visibility = "public"
     }
 
-    "todoist.nvim"  {
+    "todoist.nvim" = {
       name       = "todoist.nvim"
       private    = "false"
       license    = "MIT"
