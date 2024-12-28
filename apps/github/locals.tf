@@ -87,7 +87,5 @@ locals {
       topics     = ["neovim"]
       visibility = "public"
     }
-  }
-
   repo_with_secrets = toset(["meal-notifier", "twitch-bot"])
 }
