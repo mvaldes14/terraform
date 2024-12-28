@@ -34,3 +34,15 @@ resource "github_actions_secret" "telegram_to" {
   secret_name     = "TELEGRAM_TO"
   plaintext_value = var.telegram_to
 }
+
+resource "github_repository_webhook" "wh" {
+  for_each   = local.repositories
+  repository = each.key
+  active     = false
+  configuration {
+    url          = "https://automate.mvaldes.dev/api/webhook/gh"
+    content_type = "json"
+    insecure_ssl = false
+  }
+  events = ["push", "pull_request"]
+}
