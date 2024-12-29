@@ -79,7 +79,14 @@ locals {
       topics     = ["neovim"]
       visibility = "public"
     }
-  }
 
+    "todoist.nvim" = {
+      name       = "todoist.nvim"
+      private    = "false"
+      license    = "MIT"
+      topics     = ["neovim"]
+      visibility = "public"
+    }
+  }
   repo_with_secrets = toset(["meal-notifier", "twitch-bot"])
 }
