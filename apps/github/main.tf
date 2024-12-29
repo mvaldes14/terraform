@@ -40,7 +40,7 @@ resource "github_repository_webhook" "wh" {
   repository = each.key
   active     = false
   configuration {
-    url          = "https://automate.mvaldes.dev/api/webhook/gh"
+    url          = "https://automate.mvaldes.dev/webhook/gh"
     content_type = "json"
     insecure_ssl = false
   }
