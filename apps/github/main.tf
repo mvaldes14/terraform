@@ -44,5 +44,5 @@ resource "github_repository_webhook" "wh" {
     content_type = "json"
     insecure_ssl = false
   }
-  events = ["push", "pull_request"]
+  events = ["*"]
 }
