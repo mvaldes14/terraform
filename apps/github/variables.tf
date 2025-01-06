@@ -14,8 +14,8 @@ variable "telegram_to" {
   type      = string
   sensitive = true
 }
-variable "ansible_vault_password" {
-  type      = string
-  default   = "password"
-  sensitive = true
+variable "gh_discord_url" {
+  type     = string
+  senstive = true
+  default  = ""
 }

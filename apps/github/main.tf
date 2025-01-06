@@ -40,9 +40,10 @@ resource "github_repository_webhook" "wh" {
   repository = each.key
   active     = false
   configuration {
-    url          = "https://automate.mvaldes.dev/webhook/gh"
+    url          = var.gh_discord_url
     content_type = "json"
     insecure_ssl = false
   }
+  active = true
   events = ["push", "pull_request"]
 }
