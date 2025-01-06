@@ -15,7 +15,7 @@ variable "telegram_to" {
   sensitive = true
 }
 variable "gh_discord_url" {
-  type     = string
-  senstive = true
-  default  = ""
+  type      = string
+  sensitive = true
+  default   = ""
 }

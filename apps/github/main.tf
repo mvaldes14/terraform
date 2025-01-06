@@ -38,12 +38,11 @@ resource "github_actions_secret" "telegram_to" {
 resource "github_repository_webhook" "wh" {
   for_each   = local.repositories
   repository = each.key
-  active     = false
+  active     = true
   configuration {
     url          = var.gh_discord_url
     content_type = "json"
     insecure_ssl = false
   }
-  active = true
   events = ["push", "pull_request"]
 }
