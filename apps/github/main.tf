@@ -5,6 +5,7 @@ resource "github_repository" "repo" {
   topics               = tolist(each.value.topics)
   license_template     = each.value.license
   vulnerability_alerts = true
+  has_issues           = true
 }
 
 resource "github_actions_secret" "dockerhub_token" {
