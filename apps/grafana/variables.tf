@@ -17,3 +17,8 @@ variable "TELEGRAM_CHAT_ID" {
   type      = string
   sensitive = true
 }
+
+variable "TODOIST_TOKEN" {
+  type      = string
+  sensitive = true
+}
