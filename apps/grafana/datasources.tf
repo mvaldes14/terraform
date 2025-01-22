@@ -12,7 +12,7 @@ resource "grafana_data_source" "github" {
     owner = ""
   })
   secure_json_data_encoded = jsonencode({
-    accessToken = var.GITHUB_TOKEN
+    accessToken = var.github_token
   })
 }
 
@@ -31,7 +31,7 @@ resource "grafana_data_source" "todoist-tasks" {
     auth_method = "bearerToken"
   })
   secure_json_data_encoded = jsonencode({
-    bearerToken = var.TODOIST_TOKEN
+    bearerToken = var.todoist_token
   })
 }
 
@@ -43,6 +43,6 @@ resource "grafana_data_source" "todoist-projects" {
     auth_method = "bearerToken"
   })
   secure_json_data_encoded = jsonencode({
-    bearerToken = var.TODOIST_TOKEN
+    bearerToken = var.todoist_token
   })
 }
