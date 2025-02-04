@@ -1,3 +1,10 @@
+resource "grafana_data_source" "victoriametrics" {
+  type       = "prometheus"
+  url        = "http://victoriametrics-svc.metrics:8428"
+  name       = "VictoriaMetrics"
+  is_default = true
+}
+
 resource "grafana_data_source" "github" {
   type = "grafana-github-datasource"
   name = "Github"
