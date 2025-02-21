@@ -7,7 +7,6 @@ locals {
       topics     = ["automation"]
       visibility = "public"
     }
-
     "k8s-apps" = {
       name       = "k8s-apps"
       private    = false
@@ -15,7 +14,6 @@ locals {
       topics     = ["homelab"]
       visibility = "public"
     }
-
     "ansible_playbooks" = {
       name       = "ansible_playbooks"
       private    = false
@@ -23,7 +21,6 @@ locals {
       topics     = ["automation"]
       visibility = "public"
     }
-
     "dotfiles" = {
       name       = "dotfiles"
       private    = false
@@ -31,7 +28,6 @@ locals {
       topics     = ["homelab"]
       visibility = "public"
     }
-
     "chef" = {
       name       = "chef"
       private    = false
@@ -39,7 +35,6 @@ locals {
       topics     = ["automation"]
       visibility = "public"
     }
-
     "pulumi" = {
       name       = "pulumi"
       private    = false
@@ -47,7 +42,6 @@ locals {
       topics     = ["automation"]
       visibility = "public"
     }
-
     "twitch-bot" = {
       name       = "twitch-bot"
       private    = false
@@ -55,7 +49,6 @@ locals {
       topics     = ["homelab"]
       visibility = "public"
     }
-
     "dotfiles-nix" = {
       name       = "dotfiles-nix"
       private    = "false"
@@ -63,7 +56,6 @@ locals {
       topics     = ["homelab"]
       visibility = "public"
     }
-
     "deckmaster-config" = {
       name       = "deckmaster-config"
       private    = "false"
@@ -71,7 +63,6 @@ locals {
       topics     = ["homelab"]
       visibility = "public"
     }
-
     "linear.nvim" = {
       name       = "linear.nvim"
       private    = "false"
@@ -79,12 +70,18 @@ locals {
       topics     = ["neovim"]
       visibility = "public"
     }
-
     "todoist.nvim" = {
       name       = "todoist.nvim"
       private    = "false"
       license    = "MIT"
       topics     = ["neovim"]
+      visibility = "public"
+    }
+    "flakes" = {
+      name       = "flakes"
+      private    = "false"
+      license    = "MIT"
+      topics     = ["nix"]
       visibility = "public"
     }
   }
