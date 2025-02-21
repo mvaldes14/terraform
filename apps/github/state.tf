@@ -1,6 +1,6 @@
 terraform {
   cloud {
-    organization = "elxilote"
+    organization = "mvaldes14"
 
     workspaces {
       name = "github"
