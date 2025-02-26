@@ -17,6 +17,7 @@
         terraform
         tflint
         tfsec
+        terraform-ls
       ];
     };
   };
