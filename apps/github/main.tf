@@ -22,6 +22,18 @@ resource "github_actions_secret" "dockerhub_username" {
   plaintext_value = var.dockerhub_username
 }
 
+resource "github_actions_secret" "blog_docker_token" {
+  repository      = data.github_repository.blog.name
+  secret_name     = "DOCKERHUB_TOKEN"
+  plaintext_value = var.dockerhub_token
+}
+
+resource "github_actions_secret" "blog_docker_secret" {
+  repository      = data.github_repository.blog.name
+  secret_name     = "DOCKERHUB_USERNAME"
+  plaintext_value = var.dockerhub_username
+}
+
 resource "github_actions_secret" "telegram_chat" {
   for_each        = local.repo_with_secrets
   repository      = each.key
