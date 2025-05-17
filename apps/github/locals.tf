@@ -84,6 +84,13 @@ locals {
       topics     = ["nix"]
       visibility = "public"
     }
+    "scripts" = {
+      name       = "scripts"
+      private    = "false"
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "public"
+    }
   }
   repo_with_secrets = toset(["meal-notifier", "twitch-bot"])
 }

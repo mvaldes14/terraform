@@ -11,6 +11,10 @@ provider "local" {}
 
 resource "local_file" "foo" {
   content  = "foo!"
-  filename = "foo.bar"
+  filename = "foo.bar.baz"
 }
 
+resource "local_file" "bar" {
+  content  = "bar!"
+  filename = "bar.baz.qux"
+}
