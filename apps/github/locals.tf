@@ -77,13 +77,6 @@ locals {
       topics     = ["neovim"]
       visibility = "public"
     }
-    "flakes" = {
-      name       = "flakes"
-      private    = "false"
-      license    = "MIT"
-      topics     = ["nix"]
-      visibility = "public"
-    }
     "scripts" = {
       name       = "scripts"
       private    = "false"
