@@ -1,5 +1,5 @@
 resource "grafana_data_source" "victoriametrics" {
-  type       = "prometheus"
+  type       = "victoriametrics-metrics-datasource"
   url        = "http://victoriametrics-svc.metrics:8428"
   name       = "VictoriaMetrics"
   is_default = true
@@ -44,5 +44,47 @@ resource "grafana_data_source" "todoist-projects" {
   })
   secure_json_data_encoded = jsonencode({
     bearerToken = var.todoist_token
+  })
+}
+
+resource "grafana_data_source" "clickhouse" {
+  type = "grafana-clickhouse-datasource"
+  name = "Clickhouse"
+  json_data_encoded = jsonencode({
+    default_database = "default"
+    url              = "clickhouse-svc.clickhouse"
+    port             = 9000
+    protocol         = "native"
+  })
+  secure_json_data_encoded = jsonencode({
+    password = var.clickhouse_password
+  })
+}
+
+resource "grafana_data_source" "postgresql" {
+  type = "postgres"
+  name = "Postgres"
+  url  = "postgres-svc.db:5432"
+  secure_json_data_encoded = jsonencode({
+    password = var.postgres_password
+  })
+  json_data_encoded = jsonencode({
+    database = "personal"
+    sslmode  = "disable"
+    user     = "admin"
+  })
+}
+
+resource "grafana_data_source" "twitch-api" {
+  type = "yesoreyeram-infinity-datasource"
+  name = "Twitch-API"
+  url  = "https://api.twitch.tv/helix"
+  json_data_encoded = jsonencode({
+    auth_method  = "customHeader"
+    allowedHosts = ["https://api.twitch.tv/helix"]
+    custom_headers = {
+      "Client-ID"     = var.twitch_client_id
+      "Authorization" = "Bearer ${var.twitch_oauth_token}"
+    }
   })
 }
