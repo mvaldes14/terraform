@@ -77,11 +77,11 @@ locals {
       topics     = ["neovim"]
       visibility = "public"
     }
-    "scripts" = {
-      name       = "scripts"
+    "gh-actions" = {
+      name       = "gh-actions"
       private    = "false"
       license    = "MIT"
-      topics     = ["homelab"]
+      topics     = ["automation"]
       visibility = "public"
     }
   }
