@@ -52,7 +52,7 @@ resource "grafana_data_source" "clickhouse" {
   name = "Clickhouse"
   json_data_encoded = jsonencode({
     default_database = "default"
-    url              = "clickhouse-svc.clickhouse"
+    host             = "clickhouse-svc.clickhouse"
     port             = 9000
     protocol         = "native"
   })
@@ -62,16 +62,16 @@ resource "grafana_data_source" "clickhouse" {
 }
 
 resource "grafana_data_source" "postgresql" {
-  type = "postgres"
-  name = "Postgres"
-  url  = "postgres-svc.db:5432"
+  type     = "postgres"
+  name     = "Postgres"
+  url      = "postgres-svc.db:5432"
+  username = "admin"
   secure_json_data_encoded = jsonencode({
     password = var.postgres_password
   })
   json_data_encoded = jsonencode({
     database = "personal"
     sslmode  = "disable"
-    user     = "admin"
   })
 }
 
@@ -80,11 +80,13 @@ resource "grafana_data_source" "twitch-api" {
   name = "Twitch-API"
   url  = "https://api.twitch.tv/helix"
   json_data_encoded = jsonencode({
-    auth_method  = "customHeader"
-    allowedHosts = ["https://api.twitch.tv/helix"]
-    custom_headers = {
-      "Client-ID"     = var.twitch_client_id
-      "Authorization" = "Bearer ${var.twitch_oauth_token}"
-    }
+    allowedHosts    = ["https://api.twitch.tv/helix"]
+    httpHeaderName1 = "Client-ID"
+    httpHeaderName2 = "Authorization"
   })
+  secure_json_data_encoded = jsonencode({
+    httpHeaderValue1 = var.twitch_client_id
+    httpHeaderValue2 = "Bearer ${var.twitch_oauth_token}"
+  })
+
 }
