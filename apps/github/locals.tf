@@ -84,6 +84,13 @@ locals {
       topics     = ["automation"]
       visibility = "public"
     }
+    "wiki" = {
+      name       = "wiki"
+      private    = "true"
+      license    = "MIT"
+      topics     = ["personal"]
+      visibility = "private"
+    }
   }
   repo_with_secrets = toset(["meal-notifier", "twitch-bot"])
 }
