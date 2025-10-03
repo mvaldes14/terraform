@@ -88,7 +88,7 @@ locals {
       name       = "wiki"
       private    = "true"
       license    = "MIT"
-      topics     = [""]
+      topics     = ["personal"]
       visibility = "private"
     }
   }
