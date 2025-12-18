@@ -56,13 +56,6 @@ locals {
       topics     = ["homelab"]
       visibility = "public"
     }
-    "deckmaster-config" = {
-      name       = "deckmaster-config"
-      private    = "false"
-      license    = "MIT"
-      topics     = ["homelab"]
-      visibility = "public"
-    }
     "linear.nvim" = {
       name       = "linear.nvim"
       private    = "false"
@@ -84,12 +77,12 @@ locals {
       topics     = ["automation"]
       visibility = "public"
     }
-    "wiki" = {
-      name       = "wiki"
-      private    = "true"
+    "k8s-lsp" = {
+      name       = "k8s-lsp"
+      private    = "false"
       license    = "MIT"
-      topics     = ["personal"]
-      visibility = "private"
+      topics     = ["neovim"]
+      visibility = "public"
     }
   }
   repo_with_secrets = toset(["meal-notifier", "twitch-bot"])
