@@ -84,6 +84,13 @@ locals {
       topics     = ["neovim"]
       visibility = "public"
     }
+    "otel-collector" = {
+      name       = "otel-collector"
+      private    = "false"
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "public"
+    }
   }
   repo_with_secrets = toset(["meal-notifier", "twitch-bot"])
 }
