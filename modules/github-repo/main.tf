@@ -39,6 +39,8 @@ resource "github_actions_secret" "secrets" {
   repository      = github_repository.repo.name
   secret_name     = each.key
   plaintext_value = each.value
+
+  depends_on = [github_repository.repo]
 }
 
 resource "github_repository_webhook" "webhook" {
@@ -54,6 +56,8 @@ resource "github_repository_webhook" "webhook" {
   }
 
   events = var.webhook_events
+
+  depends_on = [github_repository.repo]
 }
 
 resource "github_branch_protection" "main" {
