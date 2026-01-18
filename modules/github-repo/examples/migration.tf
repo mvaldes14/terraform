@@ -39,19 +39,14 @@ module "repositories" {
   for_each = local.repositories
   source   = "../../"  # Adjust path as needed
 
-  repository_name              = each.key
-  description                  = lookup(each.value, "description", "")
-  visibility                   = each.value.visibility
-  topics                       = each.value.topics
-  license_template             = each.value.license
-  enable_vulnerability_alerts  = true
-  enable_issues                = true
+  repository_name  = each.key
+  visibility       = each.value.visibility
+  topics           = each.value.topics
+  license_template = each.value.license
 
   # Configure webhook for all repositories
-  webhook_url          = var.gh_discord_url
-  webhook_active       = true
-  webhook_content_type = "json"
-  webhook_events       = ["*"]
+  webhook_url    = var.gh_discord_url
+  webhook_events = ["*"]
 
   # Add secrets only for specified repositories
   actions_secrets = each.value.secrets ? {

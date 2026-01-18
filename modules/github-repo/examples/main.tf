@@ -1,5 +1,4 @@
 # Example usage of the github-repo module
-# This example demonstrates how to migrate from the existing apps/github configuration
 
 terraform {
   required_providers {
@@ -14,65 +13,25 @@ terraform {
 locals {
   repositories = {
     "meal-notifier" = {
-      description = "Meal notification automation"
-      topics      = ["automation"]
-      visibility  = "public"
-      secrets     = true
+      topics     = ["automation"]
+      visibility = "public"
+      secrets    = true
     }
     "k8s-apps" = {
-      description = "Kubernetes applications for homelab"
-      topics      = ["homelab", "kubernetes"]
-      visibility  = "public"
-      secrets     = false
-    }
-    "ansible_playbooks" = {
-      description = "Ansible automation playbooks"
-      topics      = ["automation", "ansible"]
-      visibility  = "public"
-      secrets     = false
-    }
-    "dotfiles" = {
-      description = "Personal dotfiles configuration"
-      topics      = ["homelab", "dotfiles"]
-      visibility  = "public"
-      secrets     = false
+      topics     = ["homelab", "kubernetes"]
+      visibility = "public"
+      secrets    = false
     }
     "linear.nvim" = {
-      description = "Linear integration for Neovim"
-      topics      = ["neovim", "plugin"]
-      visibility  = "public"
-      secrets     = false
-    }
-    "todoist.nvim" = {
-      description = "Todoist integration for Neovim"
-      topics      = ["neovim", "plugin"]
-      visibility  = "public"
-      secrets     = false
-    }
-    "k8s-lsp" = {
-      description = "Kubernetes Language Server Protocol"
-      topics      = ["neovim", "kubernetes", "lsp"]
-      visibility  = "public"
-      secrets     = false
-    }
-    "otel-collector" = {
-      description = "OpenTelemetry collector configuration"
-      topics      = ["homelab", "observability"]
-      visibility  = "public"
-      secrets     = false
+      topics     = ["neovim", "plugin"]
+      visibility = "public"
+      secrets    = false
     }
     "wiki" = {
-      description = "Personal knowledge base and wiki"
-      topics      = ["personal", "documentation"]
-      visibility  = "private"
-      secrets     = false
+      topics     = ["personal", "documentation"]
+      visibility = "private"
+      secrets    = false
     }
-  }
-
-  # Repositories that need secrets
-  repos_with_secrets = {
-    for name, config in local.repositories :
-    name => config if config.secrets == true
   }
 }
 
@@ -81,20 +40,14 @@ module "repositories" {
   for_each = local.repositories
   source   = "../.."  # Adjust path as needed
 
-  repository_name              = each.key
-  description                  = each.value.description
-  visibility                   = each.value.visibility
-  topics                       = each.value.topics
-  license_template             = "MIT"
-  enable_vulnerability_alerts  = true
-  enable_issues                = true
-  enable_wiki                  = false
+  repository_name  = each.key
+  visibility       = each.value.visibility
+  topics           = each.value.topics
+  license_template = "MIT"
 
   # Configure webhook for all repositories
-  webhook_url          = var.gh_discord_url
-  webhook_active       = true
-  webhook_content_type = "json"
-  webhook_events       = ["*"]
+  webhook_url    = var.gh_discord_url
+  webhook_events = ["*"]
 
   # Add secrets only for specified repositories
   actions_secrets = each.value.secrets ? {
@@ -105,7 +58,7 @@ module "repositories" {
   } : {}
 }
 
-# Variables (these should match your existing variables)
+# Variables
 variable "dockerhub_token" {
   type      = string
   sensitive = true
