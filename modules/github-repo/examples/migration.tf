@@ -1,11 +1,43 @@
-# GitHub Repository Management using Module
-# This file replaces the inline resources with the github-repo module
-# and includes moved blocks to prevent resource recreation
+# Migration Example: Moving from inline resources to module
+#
+# This file demonstrates how to migrate existing GitHub repository resources
+# to the new module-based structure using Terraform's `moved` blocks.
+#
+# IMPORTANT: This is an EXAMPLE. You must customize it for your specific resources.
 
-# Use the module for all repositories
+# Step 1: Define your repositories using the module
+# This replaces the old inline github_repository resources
+
+locals {
+  repositories = {
+    "meal-notifier" = {
+      name       = "meal-notifier"
+      license    = "MIT"
+      topics     = ["automation"]
+      visibility = "public"
+      secrets    = true
+    }
+    "k8s-apps" = {
+      name       = "k8s-apps"
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "public"
+      secrets    = false
+    }
+    # Add more repositories as needed...
+  }
+
+  # Repositories that need secrets
+  repos_with_secrets = {
+    for name, config in local.repositories :
+    name => config if config.secrets == true
+  }
+}
+
+# Step 2: Use the module for all repositories
 module "repositories" {
   for_each = local.repositories
-  source   = "../../modules/github-repo"
+  source   = "../../"  # Adjust path as needed
 
   repository_name  = each.key
   visibility       = each.value.visibility
@@ -16,20 +48,17 @@ module "repositories" {
   webhook_url    = var.gh_discord_url
   webhook_events = ["*"]
 
-  # Add secrets only for repositories in repo_with_secrets set
-  actions_secrets = contains(local.repo_with_secrets, each.key) ? {
+  # Add secrets only for specified repositories
+  actions_secrets = each.value.secrets ? {
     DOCKERHUB_TOKEN    = var.dockerhub_token
     DOCKERHUB_USERNAME = var.dockerhub_username
   } : {}
 }
 
-# ============================================================================
-# MOVED BLOCKS - Migration from inline resources to module
-# ============================================================================
-# These blocks prevent resource destruction during migration.
-# After successful terraform apply, these can be removed.
+# Step 3: Add moved blocks to prevent resource recreation
+# These blocks tell Terraform that the resources have moved, not been replaced
 
-# Repository moves
+# Move repository resources from inline to module
 moved {
   from = github_repository.repo["meal-notifier"]
   to   = module.repositories["meal-notifier"].github_repository.repo
@@ -100,7 +129,7 @@ moved {
   to   = module.repositories["wiki"].github_repository.repo
 }
 
-# Webhook moves
+# Move webhook resources from inline to module
 moved {
   from = github_repository_webhook.wh["meal-notifier"]
   to   = module.repositories["meal-notifier"].github_repository_webhook.webhook[0]
@@ -171,7 +200,10 @@ moved {
   to   = module.repositories["wiki"].github_repository_webhook.webhook[0]
 }
 
-# Secret moves for meal-notifier
+# Move secrets for repositories that have them
+# Note: The old structure had separate resources for each secret type
+# The new module combines them into a single resource with for_each
+
 moved {
   from = github_actions_secret.dockerhub_token["meal-notifier"]
   to   = module.repositories["meal-notifier"].github_actions_secret.secrets["DOCKERHUB_TOKEN"]
@@ -182,7 +214,6 @@ moved {
   to   = module.repositories["meal-notifier"].github_actions_secret.secrets["DOCKERHUB_USERNAME"]
 }
 
-# Secret moves for twitch-bot
 moved {
   from = github_actions_secret.dockerhub_token["twitch-bot"]
   to   = module.repositories["twitch-bot"].github_actions_secret.secrets["DOCKERHUB_TOKEN"]
@@ -193,5 +224,19 @@ moved {
   to   = module.repositories["twitch-bot"].github_actions_secret.secrets["DOCKERHUB_USERNAME"]
 }
 
-# Note: blog repository secrets are managed separately in data.tf
-# and would need their own migration strategy if converting to module
+# Variables (these should already exist in your configuration)
+variable "dockerhub_token" {
+  type      = string
+  sensitive = true
+}
+
+variable "dockerhub_username" {
+  type      = string
+  sensitive = true
+}
+
+variable "gh_discord_url" {
+  type      = string
+  sensitive = true
+  default   = ""
+}
