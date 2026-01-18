@@ -20,8 +20,6 @@ module "repositories" {
   actions_secrets = contains(local.repo_with_secrets, each.key) ? {
     DOCKERHUB_TOKEN    = var.dockerhub_token
     DOCKERHUB_USERNAME = var.dockerhub_username
-    TELEGRAM_TOKEN     = var.telegram_token
-    TELEGRAM_TO        = var.telegram_to
   } : {}
 }
 
@@ -184,16 +182,6 @@ moved {
   to   = module.repositories["meal-notifier"].github_actions_secret.secrets["DOCKERHUB_USERNAME"]
 }
 
-moved {
-  from = github_actions_secret.telegram_chat["meal-notifier"]
-  to   = module.repositories["meal-notifier"].github_actions_secret.secrets["TELEGRAM_TOKEN"]
-}
-
-moved {
-  from = github_actions_secret.telegram_to["meal-notifier"]
-  to   = module.repositories["meal-notifier"].github_actions_secret.secrets["TELEGRAM_TO"]
-}
-
 # Secret moves for twitch-bot
 moved {
   from = github_actions_secret.dockerhub_token["twitch-bot"]
@@ -203,16 +191,6 @@ moved {
 moved {
   from = github_actions_secret.dockerhub_username["twitch-bot"]
   to   = module.repositories["twitch-bot"].github_actions_secret.secrets["DOCKERHUB_USERNAME"]
-}
-
-moved {
-  from = github_actions_secret.telegram_chat["twitch-bot"]
-  to   = module.repositories["twitch-bot"].github_actions_secret.secrets["TELEGRAM_TOKEN"]
-}
-
-moved {
-  from = github_actions_secret.telegram_to["twitch-bot"]
-  to   = module.repositories["twitch-bot"].github_actions_secret.secrets["TELEGRAM_TO"]
 }
 
 # Note: blog repository secrets are managed separately in data.tf

@@ -53,8 +53,6 @@ module "repositories" {
   actions_secrets = each.value.secrets ? {
     DOCKERHUB_TOKEN    = var.dockerhub_token
     DOCKERHUB_USERNAME = var.dockerhub_username
-    TELEGRAM_TOKEN     = var.telegram_token
-    TELEGRAM_TO        = var.telegram_to
   } : {}
 }
 
@@ -65,16 +63,6 @@ variable "dockerhub_token" {
 }
 
 variable "dockerhub_username" {
-  type      = string
-  sensitive = true
-}
-
-variable "telegram_token" {
-  type      = string
-  sensitive = true
-}
-
-variable "telegram_to" {
   type      = string
   sensitive = true
 }
