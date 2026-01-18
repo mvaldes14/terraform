@@ -20,3 +20,4 @@ projects:
     autoplan:
       when_modified:
         - "*.tf"
+        - "../../modules/github-repo/**/*.tf"
