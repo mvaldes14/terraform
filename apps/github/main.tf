@@ -16,8 +16,8 @@ module "repositories" {
   webhook_url    = var.gh_discord_url
   webhook_events = ["*"]
 
-  # Add secrets only for repositories in repo_with_secrets set
-  actions_secrets = contains(local.repo_with_secrets, each.key) ? {
+  # Add DockerHub secrets if enabled for this repository
+  actions_secrets = lookup(each.value, "enable_dockerhub_secrets", false) ? {
     DOCKERHUB_TOKEN    = var.dockerhub_token
     DOCKERHUB_USERNAME = var.dockerhub_username
   } : {}

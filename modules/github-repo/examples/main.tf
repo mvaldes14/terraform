@@ -13,24 +13,24 @@ terraform {
 locals {
   repositories = {
     "meal-notifier" = {
-      topics     = ["automation"]
-      visibility = "public"
-      secrets    = true
+      topics                   = ["automation"]
+      visibility               = "public"
+      enable_dockerhub_secrets = true
     }
     "k8s-apps" = {
-      topics     = ["homelab", "kubernetes"]
-      visibility = "public"
-      secrets    = false
+      topics                   = ["homelab", "kubernetes"]
+      visibility               = "public"
+      enable_dockerhub_secrets = false
     }
     "linear.nvim" = {
-      topics     = ["neovim", "plugin"]
-      visibility = "public"
-      secrets    = false
+      topics                   = ["neovim", "plugin"]
+      visibility               = "public"
+      enable_dockerhub_secrets = false
     }
     "wiki" = {
-      topics     = ["personal", "documentation"]
-      visibility = "private"
-      secrets    = false
+      topics                   = ["personal", "documentation"]
+      visibility               = "private"
+      enable_dockerhub_secrets = false
     }
   }
 }
@@ -49,8 +49,8 @@ module "repositories" {
   webhook_url    = var.gh_discord_url
   webhook_events = ["*"]
 
-  # Add secrets only for specified repositories
-  actions_secrets = each.value.secrets ? {
+  # Add DockerHub secrets if enabled for this repository
+  actions_secrets = lookup(each.value, "enable_dockerhub_secrets", false) ? {
     DOCKERHUB_TOKEN    = var.dockerhub_token
     DOCKERHUB_USERNAME = var.dockerhub_username
   } : {}
