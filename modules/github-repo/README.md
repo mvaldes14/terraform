@@ -43,12 +43,10 @@ module "my_repo" {
   enable_issues                = true
   enable_wiki                  = true
 
-  # GitHub Actions Secrets
-  actions_secrets = {
-    DOCKERHUB_TOKEN    = var.dockerhub_token
-    DOCKERHUB_USERNAME = var.dockerhub_username
-    TELEGRAM_TOKEN     = var.telegram_token
-  }
+  # DockerHub Secrets
+  enable_dockerhub_secrets = true
+  dockerhub_token          = var.dockerhub_token
+  dockerhub_username       = var.dockerhub_username
 
   # Webhook Configuration
   webhook_url          = var.discord_webhook_url
@@ -145,7 +143,9 @@ module "repos" {
 | archived | Whether the repository is archived | bool | false | no |
 | archive_on_destroy | Archive instead of deleting on destroy | bool | true | no |
 | template_repository | Template repository configuration | object | null | no |
-| actions_secrets | GitHub Actions secrets map | map(string) | {} | no |
+| enable_dockerhub_secrets | Enable DockerHub secrets | bool | false | no |
+| dockerhub_token | DockerHub token for GitHub Actions | string | "" | no |
+| dockerhub_username | DockerHub username for GitHub Actions | string | "" | no |
 | webhook_url | The URL for the webhook | string | "" | no |
 | webhook_active | Whether the webhook is active | bool | true | no |
 | webhook_content_type | The content type for the webhook | string | "json" | no |
