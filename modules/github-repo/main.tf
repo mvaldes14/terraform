@@ -7,11 +7,20 @@ resource "github_repository" "repo" {
   has_issues           = true
 }
 
-resource "github_actions_secret" "secrets" {
-  for_each        = var.actions_secrets
+resource "github_actions_secret" "dockerhub_token" {
+  count           = var.enable_dockerhub_secrets ? 1 : 0
   repository      = github_repository.repo.name
-  secret_name     = each.key
-  plaintext_value = each.value
+  secret_name     = "DOCKERHUB_TOKEN"
+  plaintext_value = var.dockerhub_token
+
+  depends_on = [github_repository.repo]
+}
+
+resource "github_actions_secret" "dockerhub_username" {
+  count           = var.enable_dockerhub_secrets ? 1 : 0
+  repository      = github_repository.repo.name
+  secret_name     = "DOCKERHUB_USERNAME"
+  plaintext_value = var.dockerhub_username
 
   depends_on = [github_repository.repo]
 }
