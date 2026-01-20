@@ -5,7 +5,7 @@
 # Use the module for all repositories
 module "repositories" {
   for_each = local.repositories
-  source   = "../../modules/github-repo"
+  source   = "git::https://github.com/mvaldes14/terraform.git//modules/github-repo?ref=main"
 
   repository_name  = each.key
   visibility       = each.value.visibility
@@ -17,10 +17,9 @@ module "repositories" {
   webhook_events = ["*"]
 
   # Add DockerHub secrets if enabled for this repository
-  actions_secrets = lookup(each.value, "enable_dockerhub_secrets", false) ? {
-    DOCKERHUB_TOKEN    = var.dockerhub_token
-    DOCKERHUB_USERNAME = var.dockerhub_username
-  } : {}
+  enable_dockerhub_secrets = lookup(each.value, "enable_dockerhub_secrets", false)
+  dockerhub_token          = var.dockerhub_token
+  dockerhub_username       = var.dockerhub_username
 }
 
 # ============================================================================
@@ -174,23 +173,23 @@ moved {
 # Secret moves for meal-notifier
 moved {
   from = github_actions_secret.dockerhub_token["meal-notifier"]
-  to   = module.repositories["meal-notifier"].github_actions_secret.secrets["DOCKERHUB_TOKEN"]
+  to   = module.repositories["meal-notifier"].github_actions_secret.dockerhub_token[0]
 }
 
 moved {
   from = github_actions_secret.dockerhub_username["meal-notifier"]
-  to   = module.repositories["meal-notifier"].github_actions_secret.secrets["DOCKERHUB_USERNAME"]
+  to   = module.repositories["meal-notifier"].github_actions_secret.dockerhub_username[0]
 }
 
 # Secret moves for twitch-bot
 moved {
   from = github_actions_secret.dockerhub_token["twitch-bot"]
-  to   = module.repositories["twitch-bot"].github_actions_secret.secrets["DOCKERHUB_TOKEN"]
+  to   = module.repositories["twitch-bot"].github_actions_secret.dockerhub_token[0]
 }
 
 moved {
   from = github_actions_secret.dockerhub_username["twitch-bot"]
-  to   = module.repositories["twitch-bot"].github_actions_secret.secrets["DOCKERHUB_USERNAME"]
+  to   = module.repositories["twitch-bot"].github_actions_secret.dockerhub_username[0]
 }
 
 # Note: blog repository secrets are managed separately in data.tf

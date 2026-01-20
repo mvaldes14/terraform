@@ -26,10 +26,23 @@ variable "license_template" {
   default     = "MIT"
 }
 
-variable "actions_secrets" {
-  description = "GitHub Actions secrets to create for the repository"
-  type        = map(string)
-  default     = {}
+variable "enable_dockerhub_secrets" {
+  description = "Enable DockerHub secrets for this repository"
+  type        = bool
+  default     = false
+}
+
+variable "dockerhub_token" {
+  description = "DockerHub token for GitHub Actions"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "dockerhub_username" {
+  description = "DockerHub username for GitHub Actions"
+  type        = string
+  default     = ""
   sensitive   = true
 }
 
