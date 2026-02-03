@@ -91,12 +91,5 @@ locals {
       visibility               = "public"
       enable_dockerhub_secrets = false
     }
-    "wiki" = {
-      name                     = "wiki"
-      license                  = "MIT"
-      topics                   = ["personal"]
-      visibility               = "private"
-      enable_dockerhub_secrets = false
-    }
   }
 }
