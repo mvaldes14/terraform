@@ -105,4 +105,5 @@ locals {
       visibility = "private"
       enable_dockerhub_secrets = false
     }
+  }
 }
