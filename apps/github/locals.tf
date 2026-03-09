@@ -98,5 +98,12 @@ locals {
       visibility = "public"
       enable_dockerhub_secrets = false
     }
+    "task-manager" = {
+      name = "task-manager"
+      license = "MIT"
+      topics = ["homelab"]
+      visibility = "private"
+      enable_dockerhub_secrets = false
+    }
   }
 }
