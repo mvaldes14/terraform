@@ -92,17 +92,17 @@ locals {
       enable_dockerhub_secrets = false
     }
     "dotfiles-vorpal" = {
-      name = "dotfiles-vorpal"
-      license = "MIT"
-      topics = ["homelab"]
-      visibility = "public"
+      name                     = "dotfiles-vorpal"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "public"
       enable_dockerhub_secrets = false
     }
     "task-manager" = {
-      name = "task-manager"
-      license = "MIT"
-      topics = ["homelab"]
-      visibility = "private"
+      name                     = "task-manager"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "public"
       enable_dockerhub_secrets = false
     }
   }
