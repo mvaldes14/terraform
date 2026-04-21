@@ -103,14 +103,7 @@ locals {
       license                  = "MIT"
       topics                   = ["homelab"]
       visibility               = "public"
-      enable_dockerhub_secrets = true
-    }
-    "task-manager-mcp" = {
-      name                     = "task-manager-mcp"
-      license                  = "MIT"
-      topics                   = ["homelab"]
-      visibility               = "public"
-      enable_dockerhub_secrets = true
+      enable_dockerhub_secrets = false
     }
   }
 }
