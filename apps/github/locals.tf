@@ -62,6 +62,7 @@ locals {
       topics                   = ["neovim"]
       visibility               = "public"
       enable_dockerhub_secrets = false
+      archived                 = true
     }
     "todoist.nvim" = {
       name                     = "todoist.nvim"
@@ -69,6 +70,7 @@ locals {
       topics                   = ["neovim"]
       visibility               = "public"
       enable_dockerhub_secrets = false
+      archived                 = true
     }
     "gh-actions" = {
       name                     = "gh-actions"
@@ -111,6 +113,12 @@ locals {
       topics                   = ["homelab"]
       visibility               = "public"
       enable_dockerhub_secrets = true
+    }
+    "homelab-tf-provider" = {
+      name       = "homelab-tf-provider"
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "public"
     }
   }
 }
