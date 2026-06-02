@@ -120,5 +120,11 @@ locals {
       topics     = ["homelab"]
       visibility = "public"
     }
+    "chi" = {
+      name       = "chi"
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "private"
+    }
   }
 }
