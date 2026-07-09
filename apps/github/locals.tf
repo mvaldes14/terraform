@@ -126,5 +126,11 @@ locals {
       topics     = ["homelab"]
       visibility = "private"
     }
+    "shorts" = {
+      name       = "shorts"
+      license    = "MIT"
+      topics     = ["homelab"]
+      visibility = "private"
+    }
   }
 }
