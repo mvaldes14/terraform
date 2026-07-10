@@ -27,8 +27,7 @@ Guidance for working in this Terraform repo (homelab + cloud infra).
 
 ## State, auth, CI/CD
 
-- **State**: Terraform Cloud, one workspace per app. Orgs: `mvaldes` (homelab),
-  `elxilote` (AWS). Set the workspace in `state.tf` via a `cloud {}` block.
+- **State**: Terraform Cloud, one workspace per app. Orgs: `mvaldes` (homelab), Set the workspace in `state.tf` via a `cloud {}` block.
 - **Provider auth**: environment variables set as **sensitive workspace vars** —
   `GITHUB_TOKEN`, `CLOUDFLARE_API_TOKEN`, `VAULT_TOKEN`, `SIGNOZ_ACCESS_TOKEN`, etc.
   Non-secret config (endpoints, zone IDs) goes through `variables.tf`.

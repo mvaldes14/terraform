@@ -37,7 +37,7 @@ Each app has its own `README.md` with usage, auth, and import notes.
 ## State & workflow
 
 - **State** is managed in HashiCorp Terraform Cloud — one workspace per app
-  (orgs: `mvaldes` for homelab, `elxilote` for AWS).
+  (orgs: `mvaldes` for homelab).
 - **CI/CD** is [Atlantis](./atlantis.yaml): plan on PR, apply + automerge on approval.
 - **Provider auth** is via environment variables set as sensitive workspace vars
   (e.g. `GITHUB_TOKEN`, `CLOUDFLARE_API_TOKEN`, `VAULT_TOKEN`, `SIGNOZ_ACCESS_TOKEN`).

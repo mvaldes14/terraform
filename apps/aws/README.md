@@ -8,7 +8,7 @@ type), this app is heterogeneous — organize by **one file per service**.
 | File           | Purpose                                                        |
 | -------------- | ------------------------------------------------------------- |
 | `providers.tf` | `hashicorp/aws` `5.8.0`, assume-role auth, `region`, `default_tags` |
-| `state.tf`     | Terraform Cloud workspace `aws` (org `elxilote`)              |
+| `state.tf`     | Terraform Cloud workspace `aws` (org `mvaldes`)              |
 | `variables.tf` | `region`, `environment`                                       |
 | `locals.tf`    | `common_tags` (applied to everything via `default_tags`)     |
 | `outputs.tf`   | Aggregated outputs                                            |
