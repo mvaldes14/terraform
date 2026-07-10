@@ -24,7 +24,6 @@ locals {
     "gotify"    = "13e38297510e70ae429fbfdb6ef372aa"
     "grafana"   = "86f8b49e259e5095eb802b32f1ce0f4d"
     "paperless" = "c600ac91ab0d2d872fa9fd96eae56c59"
-    "s3"        = "ebfaf13fb4f8170efd2f561e842cf3ad"
     "search"    = "6ac181011e30488234a027a3484fa1b7"
     "signoz"    = "979979e59a98055e1f13cd9a6b7a7530"
     "tkd"       = "394a0c292b3045c89a880e46de1ed1c3"

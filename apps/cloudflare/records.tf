@@ -23,7 +23,6 @@ locals {
     "gotify",
     "grafana",
     "paperless",
-    "s3",
     "search",
     "signoz",
     "tkd",
