@@ -5,6 +5,6 @@ variable "cloudflare_zone_id" {
 
 variable "cloudflare_tunnel_id" {
   type        = string
-  description = "Cloudflare Tunnel ID that all service CNAMEs point to (<tunnel-id>.cfargotunnel.com)."
-  default     = "REPLACE_WITH_TUNNEL_ID"
+  description = "Cloudflare Tunnel ID that all service CNAMEs point to (<tunnel-id>.cfargotunnel.com). Set as a sensitive var in the HCP workspace."
+  sensitive   = true
 }
