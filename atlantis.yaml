@@ -26,12 +26,12 @@ projects:
     autoplan:
       when_modified:
         - "*.tf"
-  - name: vault
-    workspace: vault
-    dir: apps/vault
-    autoplan:
-      when_modified:
-        - "*.tf"
+  # - name: vault
+  #   workspace: vault
+  #   dir: apps/vault
+  #   autoplan:
+  #     when_modified:
+  #       - "*.tf"
   - name: signoz
     workspace: signoz
     dir: apps/signoz
