@@ -8,12 +8,12 @@ projects:
     autoplan:
       when_modified:
         - "*.tf"
-  - name: aws
-    workspace: aws
-    dir: apps/aws
-    autoplan:
-      when_modified:
-        - "*.tf"
+  # - name: aws
+  #   workspace: aws
+  #   dir: apps/aws
+  #   autoplan:
+  #     when_modified:
+  #       - "*.tf"
   - name: github
     workspace: github
     dir: apps/github
