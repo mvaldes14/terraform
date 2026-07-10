@@ -8,15 +8,33 @@ projects:
     autoplan:
       when_modified:
         - "*.tf"
-  - name: aws
-    workspace: aws
-    dir: apps/aws
-    autoplan:
-      when_modified:
-        - "*.tf"
+  # - name: aws
+  #   workspace: aws
+  #   dir: apps/aws
+  #   autoplan:
+  #     when_modified:
+  #       - "*.tf"
   - name: github
     workspace: github
     dir: apps/github
+    autoplan:
+      when_modified:
+        - "*.tf"
+  - name: cloudflare
+    workspace: cloudflare
+    dir: apps/cloudflare
+    autoplan:
+      when_modified:
+        - "*.tf"
+  # - name: vault
+  #   workspace: vault
+  #   dir: apps/vault
+  #   autoplan:
+  #     when_modified:
+  #       - "*.tf"
+  - name: signoz
+    workspace: signoz
+    dir: apps/signoz
     autoplan:
       when_modified:
         - "*.tf"

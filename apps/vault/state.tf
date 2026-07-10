@@ -3,7 +3,7 @@ terraform {
     organization = "mvaldes"
 
     workspaces {
-      name = "aws"
+      name = "vault"
     }
   }
 }
