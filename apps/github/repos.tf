@@ -168,7 +168,7 @@ module "repositories" {
   license_template = each.value.license
 
   # Configure webhook for all repositories
-  webhook_url    = var.gh_discord_url
+  webhook_url    = var.gh_gotify_url
   webhook_events = ["*"]
 
   # Add DockerHub secrets if enabled for this repository

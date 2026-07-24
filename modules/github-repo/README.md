@@ -49,7 +49,7 @@ module "my_repo" {
   dockerhub_username       = var.dockerhub_username
 
   # Webhook Configuration
-  webhook_url          = var.discord_webhook_url
+  webhook_url          = var.gotify_webhook_url
   webhook_active       = true
   webhook_content_type = "json"
   webhook_events       = ["push", "pull_request", "issues"]

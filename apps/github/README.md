@@ -9,14 +9,14 @@ Manages all `mvaldes14` GitHub repositories from a single loopable map, via the
 | -------------- | ---------------------------------------------------------------------- |
 | `repos.tf`     | `repositories` map (add repos here) + `module.repositories` loop         |
 | `data.tf`      | Data sources (e.g. the externally-managed `blog` repo)                  |
-| `variables.tf` | Sensitive inputs: DockerHub creds, Discord webhook URL                  |
+| `variables.tf` | Sensitive inputs: DockerHub creds, Gotify webhook URL                   |
 | `providers.tf` | Provider `integrations/github` `6.9.1`, owner `mvaldes14`               |
 | `state.tf`     | Terraform Cloud workspace `github`                                      |
 
 ## Auth
 
 Provider reads `GITHUB_TOKEN` from the environment. Set it — along with the
-`dockerhub_token`, `dockerhub_username`, and `gh_discord_url` variables — as
+`dockerhub_token`, `dockerhub_username`, and `gh_gotify_url` variables — as
 sensitive values in the `github` Terraform Cloud workspace.
 
 ## Add a repository
@@ -33,8 +33,8 @@ Append an entry to `local.repositories` in `repos.tf`. The map key is the repo n
 }
 ```
 
-Each entry drives one `github-repo` module instance. A Discord webhook (all
-events) is attached to every repo via `var.gh_discord_url`.
+Each entry drives one `github-repo` module instance. A Gotify webhook (all
+events) is attached to every repo via `var.gh_gotify_url`.
 
 ### Options
 

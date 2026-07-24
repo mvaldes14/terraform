@@ -8,7 +8,7 @@ variable "dockerhub_username" {
   sensitive = true
 }
 
-variable "gh_discord_url" {
+variable "gh_gotify_url" {
   type      = string
   sensitive = true
   default   = ""
