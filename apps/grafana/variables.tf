@@ -27,3 +27,8 @@ variable "twitch_oauth_token" {
   type      = string
   sensitive = true
 }
+
+variable "gotify_token" {
+  type      = string
+  sensitive = true
+}

@@ -48,14 +48,11 @@ resource "grafana_data_source" "twitch-api" {
   type = "yesoreyeram-infinity-datasource"
   name = "Twitch-API"
   url  = "https://api.twitch.tv/helix"
+  http_headers = {
+    "Client-ID"     = var.twitch_client_id
+    "Authorization" = "Bearer ${var.twitch_oauth_token}"
+  }
   json_data_encoded = jsonencode({
-    allowedHosts    = ["https://api.twitch.tv/helix"]
-    httpHeaderName1 = "Client-ID"
-    httpHeaderName2 = "Authorization"
+    allowedHosts = ["https://api.twitch.tv/helix"]
   })
-  secure_json_data_encoded = jsonencode({
-    httpHeaderValue1 = var.twitch_client_id
-    httpHeaderValue2 = "Bearer ${var.twitch_oauth_token}"
-  })
-
 }
