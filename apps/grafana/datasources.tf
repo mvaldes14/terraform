@@ -1,10 +1,3 @@
-resource "grafana_data_source" "victoriametrics" {
-  type       = "victoriametrics-metrics-datasource"
-  url        = "http://victoriametrics-svc.metrics:8428"
-  name       = "VictoriaMetrics"
-  is_default = true
-}
-
 resource "grafana_data_source" "github" {
   type = "grafana-github-datasource"
   name = "Github"
@@ -16,43 +9,13 @@ resource "grafana_data_source" "github" {
   })
 }
 
-resource "grafana_data_source" "victorialogs" {
-  type        = "victoriametrics-logs-datasource"
-  name        = "VictoriaLogs"
-  url         = "http://victorialogs-svc.logs:9428"
-  access_mode = "proxy"
-}
-
-resource "grafana_data_source" "todoist-tasks" {
-  type = "yesoreyeram-infinity-datasource"
-  name = "todoist-tasks"
-  url  = "https://api.todoist.com/rest/v2/tasks"
-  json_data_encoded = jsonencode({
-    auth_method = "bearerToken"
-  })
-  secure_json_data_encoded = jsonencode({
-    bearerToken = var.todoist_token
-  })
-}
-
-resource "grafana_data_source" "todoist-projects" {
-  type = "yesoreyeram-infinity-datasource"
-  name = "todoist-projects"
-  url  = "https://api.todoist.com/rest/v2/projects"
-  json_data_encoded = jsonencode({
-    auth_method = "bearerToken"
-  })
-  secure_json_data_encoded = jsonencode({
-    bearerToken = var.todoist_token
-  })
-}
-
 resource "grafana_data_source" "clickhouse" {
-  type = "grafana-clickhouse-datasource"
-  name = "Clickhouse"
+  type       = "grafana-clickhouse-datasource"
+  name       = "Clickhouse"
+  is_default = true
   json_data_encoded = jsonencode({
     default_database = "default"
-    host             = "clickhouse-svc.clickhouse"
+    host             = "ck-cluster-clickhouse-headless.clickhouse"
     port             = 9000
     protocol         = "native"
   })
@@ -64,7 +27,7 @@ resource "grafana_data_source" "clickhouse" {
 resource "grafana_data_source" "postgresql" {
   type     = "postgres"
   name     = "Postgres"
-  url      = "postgres-svc.db:5432"
+  url      = "homelab-db-ro.db:5432"
   username = "admin"
   secure_json_data_encoded = jsonencode({
     password = var.postgres_password
@@ -75,18 +38,21 @@ resource "grafana_data_source" "postgresql" {
   })
 }
 
+resource "grafana_data_source" "redis" {
+  type = "redis-datasource"
+  name = "Redis"
+  url  = "redis://redis-svc.db:6379"
+}
+
 resource "grafana_data_source" "twitch-api" {
   type = "yesoreyeram-infinity-datasource"
   name = "Twitch-API"
   url  = "https://api.twitch.tv/helix"
+  http_headers = {
+    "Client-ID"     = var.twitch_client_id
+    "Authorization" = "Bearer ${var.twitch_oauth_token}"
+  }
   json_data_encoded = jsonencode({
-    allowedHosts    = ["https://api.twitch.tv/helix"]
-    httpHeaderName1 = "Client-ID"
-    httpHeaderName2 = "Authorization"
+    allowedHosts = ["https://api.twitch.tv/helix"]
   })
-  secure_json_data_encoded = jsonencode({
-    httpHeaderValue1 = var.twitch_client_id
-    httpHeaderValue2 = "Bearer ${var.twitch_oauth_token}"
-  })
-
 }
