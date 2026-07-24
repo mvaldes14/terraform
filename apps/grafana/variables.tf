@@ -18,11 +18,6 @@ variable "telegram_chat_id" {
   sensitive = true
 }
 
-variable "todoist_token" {
-  type      = string
-  sensitive = true
-}
-
 variable "clickhouse_password" {
   type      = string
   sensitive = true
