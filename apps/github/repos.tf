@@ -120,22 +120,39 @@ locals {
       enable_dockerhub_secrets = true
     }
     "homelab-tf-provider" = {
-      name       = "homelab-tf-provider"
-      license    = "MIT"
-      topics     = ["homelab"]
-      visibility = "public"
+      name                     = "homelab-tf-provider"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "public"
+      enable_dockerhub_secrets = false
     }
     "chi" = {
-      name       = "chi"
-      license    = "MIT"
-      topics     = ["homelab"]
-      visibility = "private"
+      name                     = "chi"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "private"
+      enable_dockerhub_secrets = false
     }
     "shorts" = {
-      name       = "shorts"
-      license    = "MIT"
-      topics     = ["homelab"]
-      visibility = "private"
+      name                     = "shorts"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "private"
+      enable_dockerhub_secrets = false
+    }
+    "nerv" = {
+      name                     = "nerv"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "public"
+      enable_dockerhub_secrets = false
+    }
+    "homelab-events" = {
+      name                     = "homelab-events"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "private"
+      enable_dockerhub_secrets = false
     }
   }
 }
@@ -159,4 +176,3 @@ module "repositories" {
   dockerhub_token          = var.dockerhub_token
   dockerhub_username       = var.dockerhub_username
 }
-
