@@ -8,16 +8,6 @@ variable "github_token" {
   sensitive = true
 }
 
-variable "telegram_token" {
-  type      = string
-  sensitive = true
-}
-
-variable "telegram_chat_id" {
-  type      = string
-  sensitive = true
-}
-
 variable "clickhouse_password" {
   type      = string
   sensitive = true
