@@ -28,6 +28,7 @@ locals {
     "tkd",
     "umami",
     "vault",
+    "events"
   ]
 
   # Keyed by service name so for_each addresses stay stable regardless of list
