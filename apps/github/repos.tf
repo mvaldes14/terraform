@@ -147,8 +147,8 @@ locals {
       visibility               = "public"
       enable_dockerhub_secrets = false
     }
-    "homelab-events" = {
-      name                     = "homelab-events"
+    "eventbus" = {
+      name                     = "eventbus"
       license                  = "MIT"
       topics                   = ["homelab"]
       visibility               = "private"
