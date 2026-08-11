@@ -154,6 +154,13 @@ locals {
       visibility               = "private"
       enable_dockerhub_secrets = false
     }
+    "k8s-infra" = {
+      name                     = "k8s-infra"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "public"
+      enable_dockerhub_secrets = false
+    }
   }
 }
 
