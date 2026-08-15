@@ -19,8 +19,8 @@ locals {
       visibility               = "public"
       enable_dockerhub_secrets = false
     }
-    "ansible_playbooks" = {
-      name                     = "ansible_playbooks"
+    "ansible" = {
+      name                     = "ansible"
       license                  = "MIT"
       topics                   = ["automation"]
       visibility               = "public"
