@@ -29,6 +29,7 @@ locals {
     "umami",
     "vault",
     "events"
+    "git"
   ]
 
   # Keyed by service name so for_each addresses stay stable regardless of list
