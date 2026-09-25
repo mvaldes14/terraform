@@ -2,7 +2,7 @@ resource "signoz_rule" "test_terraform" {
   alert      = "[test][terraform] Alert by Provider"
   alert_type = "METRIC_BASED_ALERT"
   rule_type  = "threshold_rule"
-  disabled   = false 
+  disabled   = true 
 
   annotations = {
     description = "Pod {{$k8s.pod.name}} CPU is at {{$value}}."
