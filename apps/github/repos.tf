@@ -161,6 +161,13 @@ locals {
       visibility               = "public"
       enable_dockerhub_secrets = false
     }
+    "decision-gateway" = {
+      name                     = "decision-gateway"
+      license                  = "MIT"
+      topics                   = ["homelab"]
+      visibility               = "public"
+      enable_dockerhub_secrets = false
+    }
   }
 }
 
