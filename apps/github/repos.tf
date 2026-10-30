@@ -53,6 +53,7 @@ locals {
       topics                   = ["homelab"]
       visibility               = "public"
       enable_dockerhub_secrets = true
+      enable_openai_secret     = true
     }
     "dotfiles-nix" = {
       name                     = "dotfiles-nix"
@@ -111,6 +112,7 @@ locals {
       topics                   = ["homelab"]
       visibility               = "public"
       enable_dockerhub_secrets = true
+      enable_openai_secret     = true
     }
     "task-manager-mcp" = {
       name                     = "task-manager-mcp"
@@ -118,6 +120,7 @@ locals {
       topics                   = ["homelab"]
       visibility               = "public"
       enable_dockerhub_secrets = true
+      enable_openai_secret     = true
     }
     "homelab-tf-provider" = {
       name                     = "homelab-tf-provider"
@@ -146,6 +149,7 @@ locals {
       topics                   = ["homelab"]
       visibility               = "public"
       enable_dockerhub_secrets = false
+      enable_openai_secret     = true
     }
     "eventbus" = {
       name                     = "eventbus"
@@ -153,6 +157,7 @@ locals {
       topics                   = ["homelab"]
       visibility               = "private"
       enable_dockerhub_secrets = false
+      enable_openai_secret     = true
     }
     "k8s-infra" = {
       name                     = "k8s-infra"
@@ -167,6 +172,7 @@ locals {
       topics                   = ["homelab"]
       visibility               = "public"
       enable_dockerhub_secrets = false
+      enable_openai_secret     = true
     }
   }
 }
@@ -189,4 +195,8 @@ module "repositories" {
   enable_dockerhub_secrets = lookup(each.value, "enable_dockerhub_secrets", false)
   dockerhub_token          = var.dockerhub_token
   dockerhub_username       = var.dockerhub_username
+
+  # Add OpenAI secret if enabled for this repository
+  enable_openai_secret = lookup(each.value, "enable_openai_secret", false)
+  openai_key           = var.openai_key
 }

@@ -46,6 +46,19 @@ variable "dockerhub_username" {
   sensitive   = true
 }
 
+variable "enable_openai_secret" {
+  description = "Enable the OpenAI API key secret for this repository"
+  type        = bool
+  default     = false
+}
+
+variable "openai_key" {
+  description = "OpenAI API key for GitHub Actions"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
 variable "webhook_url" {
   description = "The URL for the webhook (leave empty to skip webhook creation)"
   type        = string

@@ -8,6 +8,11 @@ variable "dockerhub_username" {
   sensitive = true
 }
 
+variable "openai_key" {
+  type      = string
+  sensitive = true
+}
+
 variable "gh_events_url" {
   type      = string
   sensitive = true
