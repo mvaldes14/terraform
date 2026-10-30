@@ -25,11 +25,11 @@ resource "github_actions_secret" "dockerhub_username" {
   depends_on = [github_repository.repo]
 }
 
-resource "github_actions_secret" "openai_key" {
-  count           = var.enable_openai_secret ? 1 : 0
+resource "github_actions_secret" "bedrock_api_key" {
+  count           = var.enable_bedrock_secret ? 1 : 0
   repository      = github_repository.repo.name
-  secret_name     = "OPENAI_KEY"
-  plaintext_value = var.openai_key
+  secret_name     = "BEDROCK_API_KEY"
+  plaintext_value = var.bedrock_api_key
 
   depends_on = [github_repository.repo]
 }

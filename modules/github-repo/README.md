@@ -48,9 +48,9 @@ module "my_repo" {
   dockerhub_token          = var.dockerhub_token
   dockerhub_username       = var.dockerhub_username
 
-  # OpenAI Secret
-  enable_openai_secret = true
-  openai_key           = var.openai_key
+  # Bedrock Secret
+  enable_bedrock_secret = true
+  bedrock_api_key       = var.bedrock_api_key
 
   # Webhook Configuration
   webhook_url          = var.event_webhook_url
@@ -150,8 +150,8 @@ module "repos" {
 | enable_dockerhub_secrets | Enable DockerHub secrets | bool | false | no |
 | dockerhub_token | DockerHub token for GitHub Actions | string | "" | no |
 | dockerhub_username | DockerHub username for GitHub Actions | string | "" | no |
-| enable_openai_secret | Enable the `OPENAI_KEY` secret | bool | false | no |
-| openai_key | OpenAI API key for GitHub Actions | string | "" | no |
+| enable_bedrock_secret | Enable the `BEDROCK_API_KEY` secret | bool | false | no |
+| bedrock_api_key | Bedrock API key for GitHub Actions | string | "" | no |
 | webhook_url | The URL for the webhook | string | "" | no |
 | webhook_active | Whether the webhook is active | bool | true | no |
 | webhook_content_type | The content type for the webhook | string | "json" | no |

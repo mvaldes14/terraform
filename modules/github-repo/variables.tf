@@ -46,14 +46,14 @@ variable "dockerhub_username" {
   sensitive   = true
 }
 
-variable "enable_openai_secret" {
-  description = "Enable the OpenAI API key secret for this repository"
+variable "enable_bedrock_secret" {
+  description = "Enable the Bedrock API key secret for this repository"
   type        = bool
   default     = false
 }
 
-variable "openai_key" {
-  description = "OpenAI API key for GitHub Actions"
+variable "bedrock_api_key" {
+  description = "Bedrock API key for GitHub Actions"
   type        = string
   default     = ""
   sensitive   = true

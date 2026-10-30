@@ -8,7 +8,7 @@ variable "dockerhub_username" {
   sensitive = true
 }
 
-variable "openai_key" {
+variable "bedrock_api_key" {
   type      = string
   sensitive = true
 }
