@@ -9,14 +9,14 @@ Manages all `mvaldes14` GitHub repositories from a single loopable map, via the
 | -------------- | ---------------------------------------------------------------------- |
 | `repos.tf`     | `repositories` map (add repos here) + `module.repositories` loop         |
 | `data.tf`      | Data sources (e.g. the externally-managed `blog` repo)                  |
-| `variables.tf` | Sensitive inputs: DockerHub creds, OpenAI key, event webhook URL       |
+| `variables.tf` | Sensitive inputs: DockerHub creds, Bedrock key, event webhook URL      |
 | `providers.tf` | Provider `integrations/github` `6.9.1`, owner `mvaldes14`               |
 | `state.tf`     | Terraform Cloud workspace `github`                                      |
 
 ## Auth
 
 Provider reads `GITHUB_TOKEN` from the environment. Set it — along with the
-`dockerhub_token`, `dockerhub_username`, `openai_key`, and `gh_events_url`
+`dockerhub_token`, `dockerhub_username`, `bedrock_api_key`, and `gh_events_url`
 variables — as sensitive values in the `github` Terraform Cloud workspace.
 
 ## Add a repository
@@ -30,7 +30,7 @@ Append an entry to `local.repositories` in `repos.tf`. The map key is the repo n
   topics                   = ["homelab"]
   visibility               = "public"   # or "private"
   enable_dockerhub_secrets = false      # true injects DockerHub Actions secrets
-  enable_openai_secret     = false      # true injects OPENAI_KEY
+  enable_bedrock_secret    = false      # true injects BEDROCK_API_KEY
 }
 ```
 
@@ -45,7 +45,7 @@ events) is attached to every repo via `var.gh_events_url`.
 | `topics`                   | List of repo topics                                                |
 | `license`                  | License template (`MIT`, `apache-2.0`, …)                          |
 | `enable_dockerhub_secrets` | When `true`, sets `DOCKERHUB_TOKEN` / `DOCKERHUB_USERNAME` secrets |
-| `enable_openai_secret`     | When `true`, sets the `OPENAI_KEY` secret                          |
+| `enable_bedrock_secret`    | When `true`, sets the `BEDROCK_API_KEY` secret                     |
 | `archived`                 | Present on archived repos (see `linear.nvim`, `todoist.nvim`)      |
 
 ## Import an existing repository
