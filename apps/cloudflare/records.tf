@@ -28,7 +28,7 @@ locals {
     "tkd",
     "umami",
     "vault",
-    "events"
+    "events",
     "git"
   ]
 
