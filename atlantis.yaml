@@ -20,6 +20,12 @@ projects:
     autoplan:
       when_modified:
         - "*.tf"
+  - name: forgejo
+    workspace: forgejo
+    dir: apps/forgejo
+    autoplan:
+      when_modified:
+        - "*.tf"
   - name: cloudflare
     workspace: cloudflare
     dir: apps/cloudflare
