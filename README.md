@@ -14,6 +14,7 @@ Modules and manifests used to manage my homelab and cloud infrastructure.
 | App               | Provider(s)          | Manages                                   |
 | ----------------- | -------------------- | ----------------------------------------- |
 | `github`          | integrations/github  | Repositories, webhooks, Actions secrets   |
+| `forgejo`         | svalabs/forgejo      | GitHub-to-Forgejo repository mirrors      |
 | `cloudflare`      | cloudflare/cloudflare| DNS records for internal services         |
 | `aws`             | hashicorp/aws        | KMS, S3, general AWS resources            |
 | `aws_localstack`  | hashicorp/aws        | LocalStack (VPC, EC2, S3) emulation       |

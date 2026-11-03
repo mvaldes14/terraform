@@ -122,13 +122,6 @@ locals {
       enable_dockerhub_secrets = true
       enable_bedrock_secret    = true
     }
-    "homelab-tf-provider" = {
-      name                     = "homelab-tf-provider"
-      license                  = "MIT"
-      topics                   = ["homelab"]
-      visibility               = "public"
-      enable_dockerhub_secrets = false
-    }
     "chi" = {
       name                     = "chi"
       license                  = "MIT"
